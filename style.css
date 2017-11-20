@@ -83,7 +83,7 @@ fieldset {
   height: 100vh;
 }
 
-@keyframes bump {
+@keyframes :global(load) bump {
   0% { transform: translatey(0%); }
   50% { transform: translatey(25%); }
   100% { transform: translatey(0%); }
