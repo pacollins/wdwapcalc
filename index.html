@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>WDW AP Calculator</title>
+	<meta content=
+	"A calculator to determine the value of purchasing an Annual Pass at Walt Disney World in Orlando, Florida."
+	name="description">
+	<meta content="Patrick A Collins" name="author">
+	<link href=
+	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	rel="stylesheet">
+	<link href=
+	"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+	<link href="style.css" rel="stylesheet"><!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="jumbotron text-center">
+			<h1 class="display-3">WDW Annual Pass Calculator</h1>
+
+
+			<p class="lead">by Patrick Collins</p>
+
+			<hr class="my-4">
+			<img alt="Annual Passholder Card" class="rounded" src=
+			"http://www.chipandco.com/wp-content/uploads/2016/08/Passholder-600x376.jpg"
+			width="300">
+
+			<hr class="my-4">
+
+
+			<p>A calculator to determine the value of purchasing an Annual Pass at Walt
+			Disney World in Orlando, Florida.</p>
+		</div>
+
+
+		<div class="card">
+			<div class="card-body row">
+				<fieldset class="col-md-6" id="reg">
+					<legend>Typical Trip</legend>
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="reg_visa">Disney VISA?</label> <select class="form-control"
+							id="reg_visa">
+								<option value="0">
+									No
+								</option>
+
+								<option value="1">
+									Yes
+								</option>
+							</select>
+						</div>
+
+
+						<div class="form-group col">
+							<label for="reg_photopass">PhotoPass?</label> <select class=
+							"form-control" id="reg_photopass">
+								<option value="0">
+									No
+								</option>
+
+								<option value="1">
+									Yes
+								</option>
+							</select>
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-8">
+							<label for="reg_num">Tickets</label> <input class="form-control" id=
+							"reg_num" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="reg_upgrade">Park Hopper?</label> <select class=
+							"form-control" id="reg_upgrade">
+								<option value="0">
+									No
+								</option>
+
+								<option value="1">
+									Yes
+								</option>
+							</select>
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="reg_days">Days/Year</label> <input class="form-control" id=
+							"reg_days" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="reg_food">Food/Person/Day</label>
+
+							<div class="input-group">
+								<span class="input-group-addon"><i aria-hidden="true" class=
+								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
+								id="reg_food" min="0" step="0.01" type="number">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="reg_trips">Trips/Year</label> <input class="form-control"
+							id="reg_trips" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="reg_nights">Nights/Year</label> <input class="form-control"
+							id="reg_nights" min="0" type="number">
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="reg_rooms">Rooms</label> <input class="form-control" id=
+							"reg_rooms" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="reg_rooms_people">People/Room</label> <input class=
+							"form-control" id="reg_rooms_people" min="1" type="number">
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="reg_merch">Merchandise/Year</label>
+
+							<div class="input-group">
+								<span class="input-group-addon"><i aria-hidden="true" class=
+								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
+								id="reg_merch" min="0" step="0.01" type="number">
+							</div>
+						</div>
+
+
+						<div class="form-group col">
+							<label for="reg_wonderland">Tables In Wonderland?</label> <select class=
+							"form-control" id="reg_wonderland">
+								<option value="0">
+									No
+								</option>
+
+								<option value="1">
+									Yes
+								</option>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+
+
+				<fieldset class="col-md-6" id="ap">
+					<legend>Annual Pass Trip</legend>
+
+					<div class="form-row">
+						<div class="form-group col-md-8">
+							<label for="ap_num">Annual Passes</label> <input class="form-control"
+							id="ap_num" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="ap_upgrade">Platinum Pass +?</label> <select class=
+							"form-control" id="ap_upgrade">
+								<option value="0">
+									No
+								</option>
+
+								<option value="1">
+									Yes
+								</option>
+							</select>
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-8">
+							<label for="ap_reg_num">Regular Tickets</label> <input class=
+							"form-control" id="ap_reg_num" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="ap_reg_upgrade">Park Hopper?</label> <select class=
+							"form-control" id="ap_reg_upgrade">
+								<option value="0">
+									No
+								</option>
+
+								<option value="1">
+									Yes
+								</option>
+							</select>
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="ap_days">Days/Year</label> <input class="form-control" id=
+							"ap_days" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="ap_food">Food/Person/Day</label>
+
+							<div class="input-group">
+								<span class="input-group-addon"><i aria-hidden="true" class=
+								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
+								id="ap_food" min="0" step="0.01" type="number">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="ap_trips">Trips/Year</label> <input class="form-control" id=
+							"ap_trips" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="ap_nights">Nights/Year</label> <input class="form-control"
+							id="ap_nights" min="0" type="number">
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="ap_rooms">Rooms</label> <input class="form-control" id=
+							"ap_rooms" min="0" type="number">
+						</div>
+
+
+						<div class="form-group col">
+							<label for="ap_rooms_people">People/Room</label> <input class=
+							"form-control" id="ap_rooms_people" min="1" type="number">
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="ap_merch">Merchandise/Year</label>
+
+							<div class="input-group">
+								<span class="input-group-addon"><i aria-hidden="true" class=
+								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
+								id="ap_merch" min="0" step="0.01" type="number">
+							</div>
+						</div>
+
+
+						<div class="form-group col">
+							<label for="ap_wonderland">Tables In Wonderland?</label> <select class=
+							"form-control" id="ap_wonderland">
+								<option value="0">
+									No
+								</option>
+
+								<option value="1">
+									Yes
+								</option>
+							</select>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<input class="form-control btn btn-primary" onclick="calculate()" type=
+		"submit" value="Calculate">
+	</div>
+
+
+	<div class="container-fluid">
+		<div class="card">
+			<div class="card-body">
+				<table class=
+				"table table-hover table-sm text-center table-striped table-responsive-lg"
+				id="chart">
+					<tr class="clearfix">
+						<th class="table-toggle btn-outline-dark sort-alpha" onclick=
+						"sortTable(0)" role="button" scope="col">Hotel</th>
+
+						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(1)"
+						role="button" scope="col">AP Loss or Gain</th>
+
+						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(2)"
+						role="button" scope="col">AP Cost/Year</th>
+
+						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(3)"
+						role="button" scope="col">AP vs Typical Cost</th>
+
+						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(4)"
+						role="button" scope="col">Typical Cost/Year</th>
+					</tr>
+
+
+					<tr>
+						<td>Grand Floridian</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Polynesian Village</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>BoardWalk Inn</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Yacht Club</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Beach Club</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Art of Animation - Suites</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Contemporary</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Fort Wilderness</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Animal Kingdom Lodge</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Wilderness Lodge</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Polynesian Village (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Grand Floridian (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Port Orleans - Riverside</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Coronado Springs</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>BoardWalk Inn (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Caribbean Beach</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Bay Lake Tower (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Wilderness Lodge (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Fort Wilderness (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Beach Club (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Saratoga Springs (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Old Key West (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Pop Century</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>All-Star Sports</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>All-Star Music</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>All-Star Movies</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Animal Kingdom Lodge (DVC)</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>Off-Site</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+
+						<td>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+
+			<div class="card-footer text-center">
+				<p>Hotel prices based on advertised rack rates (or renting DVC Points @
+				$14/pp) compared to the AP discounts for the "Summer Rates" for the first
+				full week of June (Source: MouseSavers). All prices used are the cheapest I
+				can find (base room accommodations). Also, don't forget that not everyone
+				has to have an AP to get the AP discounts. ;D</p>
+
+
+				<p>If prices go up, AP becomes more worthwhile. If prices go down, AP
+				becomes less worthwhile.</p>
+
+
+				<p>Feel free to check the prices in the other two tabs below. If you know
+				of a lower price, please let me know and I'll adjust it.</p>
+
+
+				<p>NOTE: These are estimates based on typical pricing. The only tax that is
+				included is the tax on the hotel.</p>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
+	</script>
+	<script src=
+	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
+	</script>
+	<script src="script.js">
+	</script>
+</body>
+</html>
