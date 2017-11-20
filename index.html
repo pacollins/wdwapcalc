@@ -21,279 +21,287 @@
 </head>
 
 <body>
+	<div class="jumbotron text-center">
+		<h1 class="display-3">WDW Annual Pass Calculator</h1>
+
+
+		<p class="lead">by Patrick Collins</p>
+
+		<hr class="my-4">
+		<img alt="Annual Passholder Card" class="rounded" src="Passholder.jpg" width=
+		"300">
+
+		<hr class="my-4">
+
+
+		<p>A calculator to determine the value of purchasing an Annual Pass at Walt
+		Disney World in Orlando, Florida.</p>
+
+
+		<p class="footer">Created for <a href=
+		"http://www.reddit.com/r/WaltDisneyWorld"><i aria-hidden="true" class=
+		"fa fa-reddit-alien"> r/WaltDisneyWorld</i></a></p>
+		<br/>
+		<a href="#reg"><i class="fa fa-angle-double-down fa-3x text-secondary bump" aria-hidden="true"></i></a>
+	</div>
+
+
 	<div class="container-fluid">
-		<div class="jumbotron text-center">
-			<h1 class="display-3">WDW Annual Pass Calculator</h1>
-
-
-			<p class="lead">by Patrick Collins</p>
-
-			<hr class="my-4">
-			<img alt="Annual Passholder Card" class="rounded" src=
-			"http://www.chipandco.com/wp-content/uploads/2016/08/Passholder-600x376.jpg"
-			width="300">
-
-			<hr class="my-4">
-
-
-			<p>A calculator to determine the value of purchasing an Annual Pass at Walt
-			Disney World in Orlando, Florida.</p>
-		</div>
-
-
 		<div class="card">
-			<div class="card-body row">
-				<fieldset class="col-md-6" id="reg">
-					<legend>Typical Trip</legend>
+			<form class="form">
+				<div class="card-body row">
+					<fieldset class="col-md-6" id="reg">
+						<legend>Typical Trip</legend>
 
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="reg_visa">Disney VISA?</label> <select class="form-control"
-							id="reg_visa">
-								<option value="0">
-									No
-								</option>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="reg_visa">Disney VISA?</label> <select class="form-control"
+								id="reg_visa">
+									<option value="0">
+										No
+									</option>
 
-								<option value="1">
-									Yes
-								</option>
-							</select>
-						</div>
-
-
-						<div class="form-group col">
-							<label for="reg_photopass">PhotoPass?</label> <select class=
-							"form-control" id="reg_photopass">
-								<option value="0">
-									No
-								</option>
-
-								<option value="1">
-									Yes
-								</option>
-							</select>
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-8">
-							<label for="reg_num">Tickets</label> <input class="form-control" id=
-							"reg_num" min="0" type="number">
-						</div>
-
-
-						<div class="form-group col">
-							<label for="reg_upgrade">Park Hopper?</label> <select class=
-							"form-control" id="reg_upgrade">
-								<option value="0">
-									No
-								</option>
-
-								<option value="1">
-									Yes
-								</option>
-							</select>
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="reg_days">Days/Year</label> <input class="form-control" id=
-							"reg_days" min="0" type="number">
-						</div>
-
-
-						<div class="form-group col">
-							<label for="reg_food">Food/Person/Day</label>
-
-							<div class="input-group">
-								<span class="input-group-addon"><i aria-hidden="true" class=
-								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
-								id="reg_food" min="0" step="0.01" type="number">
+									<option value="1">
+										Yes
+									</option>
+								</select>
 							</div>
-						</div>
-					</div>
 
 
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="reg_trips">Trips/Year</label> <input class="form-control"
-							id="reg_trips" min="0" type="number">
-						</div>
+							<div class="form-group col">
+								<label for="reg_photopass">PhotoPass?</label> <select class=
+								"form-control" id="reg_photopass">
+									<option value="0">
+										No
+									</option>
 
-
-						<div class="form-group col">
-							<label for="reg_nights">Nights/Year</label> <input class="form-control"
-							id="reg_nights" min="0" type="number">
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="reg_rooms">Rooms</label> <input class="form-control" id=
-							"reg_rooms" min="0" type="number">
-						</div>
-
-
-						<div class="form-group col">
-							<label for="reg_rooms_people">People/Room</label> <input class=
-							"form-control" id="reg_rooms_people" min="1" type="number">
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="reg_merch">Merchandise/Year</label>
-
-							<div class="input-group">
-								<span class="input-group-addon"><i aria-hidden="true" class=
-								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
-								id="reg_merch" min="0" step="0.01" type="number">
+									<option value="1">
+										Yes
+									</option>
+								</select>
 							</div>
 						</div>
 
 
-						<div class="form-group col">
-							<label for="reg_wonderland">Tables In Wonderland?</label> <select class=
-							"form-control" id="reg_wonderland">
-								<option value="0">
-									No
-								</option>
-
-								<option value="1">
-									Yes
-								</option>
-							</select>
-						</div>
-					</div>
-				</fieldset>
-
-
-				<fieldset class="col-md-6" id="ap">
-					<legend>Annual Pass Trip</legend>
-
-					<div class="form-row">
-						<div class="form-group col-md-8">
-							<label for="ap_num">Annual Passes</label> <input class="form-control"
-							id="ap_num" min="0" type="number">
-						</div>
-
-
-						<div class="form-group col">
-							<label for="ap_upgrade">Platinum Pass +?</label> <select class=
-							"form-control" id="ap_upgrade">
-								<option value="0">
-									No
-								</option>
-
-								<option value="1">
-									Yes
-								</option>
-							</select>
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-8">
-							<label for="ap_reg_num">Regular Tickets</label> <input class=
-							"form-control" id="ap_reg_num" min="0" type="number">
-						</div>
-
-
-						<div class="form-group col">
-							<label for="ap_reg_upgrade">Park Hopper?</label> <select class=
-							"form-control" id="ap_reg_upgrade">
-								<option value="0">
-									No
-								</option>
-
-								<option value="1">
-									Yes
-								</option>
-							</select>
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="ap_days">Days/Year</label> <input class="form-control" id=
-							"ap_days" min="0" type="number">
-						</div>
-
-
-						<div class="form-group col">
-							<label for="ap_food">Food/Person/Day</label>
-
-							<div class="input-group">
-								<span class="input-group-addon"><i aria-hidden="true" class=
-								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
-								id="ap_food" min="0" step="0.01" type="number">
+						<div class="form-row">
+							<div class="form-group col-md-8">
+								<label for="reg_num">Tickets</label> <input class="form-control" id=
+								"reg_num" min="0" type="number">
 							</div>
-						</div>
-					</div>
 
 
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="ap_trips">Trips/Year</label> <input class="form-control" id=
-							"ap_trips" min="0" type="number">
-						</div>
+							<div class="form-group col">
+								<label for="reg_upgrade">Park Hopper?</label> <select class=
+								"form-control" id="reg_upgrade">
+									<option value="0">
+										No
+									</option>
 
-
-						<div class="form-group col">
-							<label for="ap_nights">Nights/Year</label> <input class="form-control"
-							id="ap_nights" min="0" type="number">
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="ap_rooms">Rooms</label> <input class="form-control" id=
-							"ap_rooms" min="0" type="number">
-						</div>
-
-
-						<div class="form-group col">
-							<label for="ap_rooms_people">People/Room</label> <input class=
-							"form-control" id="ap_rooms_people" min="1" type="number">
-						</div>
-					</div>
-
-
-					<div class="form-row">
-						<div class="form-group col-md-6">
-							<label for="ap_merch">Merchandise/Year</label>
-
-							<div class="input-group">
-								<span class="input-group-addon"><i aria-hidden="true" class=
-								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
-								id="ap_merch" min="0" step="0.01" type="number">
+									<option value="1">
+										Yes
+									</option>
+								</select>
 							</div>
 						</div>
 
 
-						<div class="form-group col">
-							<label for="ap_wonderland">Tables In Wonderland?</label> <select class=
-							"form-control" id="ap_wonderland">
-								<option value="0">
-									No
-								</option>
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="reg_days">Days/Year</label> <input class="form-control" id=
+								"reg_days" min="0" type="number">
+							</div>
 
-								<option value="1">
-									Yes
-								</option>
-							</select>
+
+							<div class="form-group col">
+								<label for="reg_food">Food/Person/Day</label>
+
+								<div class="input-group">
+									<span class="input-group-addon"><i aria-hidden="true" class=
+									"fa fa-usd"></i></span> <input aria-label="Amount" class=
+									"form-control" id="reg_food" min="0" step="0.01" type="number">
+								</div>
+							</div>
 						</div>
-					</div>
-				</fieldset>
-			</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="reg_trips">Trips/Year</label> <input class="form-control"
+								id="reg_trips" min="0" type="number">
+							</div>
+
+
+							<div class="form-group col">
+								<label for="reg_nights">Nights/Year</label> <input class="form-control"
+								id="reg_nights" min="0" type="number">
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="reg_rooms">Rooms</label> <input class="form-control" id=
+								"reg_rooms" min="0" type="number">
+							</div>
+
+
+							<div class="form-group col">
+								<label for="reg_rooms_people">People/Room</label> <input class=
+								"form-control" id="reg_rooms_people" min="1" type="number">
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="reg_merch">Merchandise/Year</label>
+
+								<div class="input-group">
+									<span class="input-group-addon"><i aria-hidden="true" class=
+									"fa fa-usd"></i></span> <input aria-label="Amount" class=
+									"form-control" id="reg_merch" min="0" step="0.01" type="number">
+								</div>
+							</div>
+
+
+							<div class="form-group col">
+								<label for="reg_wonderland">Tables In Wonderland?</label>
+								<select class="form-control" id="reg_wonderland">
+									<option value="0">
+										No
+									</option>
+
+									<option value="1">
+										Yes
+									</option>
+								</select>
+							</div>
+						</div>
+					</fieldset>
+
+
+					<fieldset class="col-md-6" id="ap">
+						<legend>Annual Pass Trip</legend>
+
+						<div class="form-row">
+							<div class="form-group col-md-8">
+								<label for="ap_num">Annual Passes</label> <input class="form-control"
+								id="ap_num" min="0" type="number">
+							</div>
+
+
+							<div class="form-group col">
+								<label for="ap_upgrade">Platinum Pass +?</label> <select class=
+								"form-control" id="ap_upgrade">
+									<option value="0">
+										No
+									</option>
+
+									<option value="1">
+										Yes
+									</option>
+								</select>
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-8">
+								<label for="ap_reg_num">Regular Tickets</label> <input class=
+								"form-control" id="ap_reg_num" min="0" type="number">
+							</div>
+
+
+							<div class="form-group col">
+								<label for="ap_reg_upgrade">Park Hopper?</label> <select class=
+								"form-control" id="ap_reg_upgrade">
+									<option value="0">
+										No
+									</option>
+
+									<option value="1">
+										Yes
+									</option>
+								</select>
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="ap_days">Days/Year</label> <input class="form-control" id=
+								"ap_days" min="0" type="number">
+							</div>
+
+
+							<div class="form-group col">
+								<label for="ap_food">Food/Person/Day</label>
+
+								<div class="input-group">
+									<span class="input-group-addon"><i aria-hidden="true" class=
+									"fa fa-usd"></i></span> <input aria-label="Amount" class=
+									"form-control" id="ap_food" min="0" step="0.01" type="number">
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="ap_trips">Trips/Year</label> <input class="form-control"
+								id="ap_trips" min="0" type="number">
+							</div>
+
+
+							<div class="form-group col">
+								<label for="ap_nights">Nights/Year</label> <input class="form-control"
+								id="ap_nights" min="0" type="number">
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="ap_rooms">Rooms</label> <input class="form-control" id=
+								"ap_rooms" min="0" type="number">
+							</div>
+
+
+							<div class="form-group col">
+								<label for="ap_rooms_people">People/Room</label> <input class=
+								"form-control" id="ap_rooms_people" min="1" type="number">
+							</div>
+						</div>
+
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="ap_merch">Merchandise/Year</label>
+
+								<div class="input-group">
+									<span class="input-group-addon"><i aria-hidden="true" class=
+									"fa fa-usd"></i></span> <input aria-label="Amount" class=
+									"form-control" id="ap_merch" min="0" step="0.01" type="number">
+								</div>
+							</div>
+
+
+							<div class="form-group col">
+								<label for="ap_wonderland">Tables In Wonderland?</label> <select class=
+								"form-control" id="ap_wonderland">
+									<option value="0">
+										No
+									</option>
+
+									<option value="1">
+										Yes
+									</option>
+								</select>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</form>
 		</div>
 		<input class="form-control btn btn-primary" onclick="calculate()" type=
 		"submit" value="Calculate">
@@ -823,6 +831,14 @@
 			</div>
 		</div>
 	</div>
+
+
+	<footer class="text-center">
+		<p>Copyright <i aria-hidden="true" class="fa fa-copyright"></i> 2017 Patrick
+		Collins<br>
+		<a href="LICENSE.md"><i aria-hidden="true" class="fa fa-gavel"></i> MIT
+		License</a></p>
+	</footer>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
 	</script>
 	<script src=

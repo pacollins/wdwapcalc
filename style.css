@@ -79,6 +79,18 @@ fieldset {
   border-radius: .25em;
 }
 
-.card {
-  padding: .5em;
+.jumbotron {
+  height: 100vh;
+}
+
+@keyframes bump {
+  0% { transform: translatey(0%); }
+  50% { transform: translatey(25%); }
+  100% { transform: translatey(0%); }
+}
+
+.bump {
+  position :relative;
+  -webkit-animation: bump 2s infinite; /* Safari 4.0 - 8.0 */
+  animation: bump 2s infinite;
 }
