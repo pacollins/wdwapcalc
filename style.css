@@ -34,7 +34,7 @@
 	font-weight: normal;
 }
 
-.sort-alpha .sort::after {
+.sort-alpha.sort::after {
 	content: " \f15d";
 	font-family: FontAwesome;
 	font-style: normal;
@@ -48,7 +48,7 @@
 	font-weight: normal;
 }
 
-.sort-num .sort::after {
+.sort-num.sort::after {
 	content: " \f163";
 	font-family: FontAwesome;
 	font-style: normal;
@@ -63,9 +63,22 @@
 }
 
 td:not(:first-child)::before {
-	float: left;
-	content: "\f155";
+
+	content: "\f155  ";
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
+}
+
+legend {
+  width: fit-content;
+}
+
+fieldset {
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25em;
+}
+
+.card {
+  padding: .5em;
 }
