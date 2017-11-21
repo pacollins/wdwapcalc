@@ -78,8 +78,10 @@ fieldset {
   border-radius: .25em;
 }
 
-.jumbotron {
-  height: 100vh;
+@media (orientation : landscape) {
+		.jumbotron {
+	  height: 100vh;
+	}
 }
 
 @keyframes bump {
