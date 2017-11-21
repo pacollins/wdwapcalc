@@ -6,7 +6,6 @@
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	border: 1px solid transparent;
 	padding: .375rem .75rem;
 	font-size: 1rem;
 	line-height: 3;
@@ -83,7 +82,7 @@ fieldset {
   height: 100vh;
 }
 
-@keyframes :global(load) bump {
+@keyframes bump {
   0% { transform: translatey(0%); }
   50% { transform: translatey(25%); }
   100% { transform: translatey(0%); }

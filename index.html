@@ -9,13 +9,14 @@
 	"A calculator to determine the value of purchasing an Annual Pass at Walt Disney World in Orlando, Florida."
 	name="description">
 	<meta content="Patrick A Collins" name="author">
-	<link href=
-	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-	rel="stylesheet">
-	<link href=
-	"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet">
-	<link href="style.css" rel="stylesheet"><!--[if lt IE 9]>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.bootstrap4.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap4.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.0/css/responsive.bootstrap4.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link href="style.css" rel="stylesheet"/>
+	<!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
 </head>
@@ -41,8 +42,9 @@
 		<p class="footer">Created for <a href=
 		"http://www.reddit.com/r/WaltDisneyWorld"><i aria-hidden="true" class=
 		"fa fa-reddit-alien"> r/WaltDisneyWorld</i></a></p>
-		<br/>
-		<a href="#reg"><i class="fa fa-angle-double-down fa-3x text-secondary bump" aria-hidden="true"></i></a>
+		<br>
+		<a href="#reg"><i aria-hidden="true" class=
+		"fa fa-angle-double-down fa-3x text-secondary bump"></i></a>
 	</div>
 
 
@@ -301,511 +303,78 @@
 						</div>
 					</fieldset>
 				</div>
+
+
+				<div class="card-body row">
+					<div class="col-md-4">
+					</div>
+
+
+					<fieldset class="col-md-4" id="optional">
+						<legend>Optional Inputs</legend>
+
+						<div class="form-group">
+							<label for="custom_hotel">Custom Hotel Price/Night</label>
+
+							<div class="input-group">
+								<span class="input-group-addon"><i aria-hidden="true" class=
+								"fa fa-usd"></i></span> <input aria-label="Amount" class="form-control"
+								id="custom_hotel" min="0" step="0.01" type="number">
+							</div>
+						</div>
+					</fieldset>
+
+
+					<div class="col-md-4">
+					</div>
+				</div>
 			</form>
+
+
+			<div class="card-body row">
+				<div class="col-md-3">
+				</div>
+
+
+				<div class="col-md-6">
+					<div class="form-group">
+						<input class="form-control btn btn-primary" onclick="calculate()" type=
+						"submit" value="Calculate">
+					</div>
+				</div>
+
+
+				<div class="col-md-3">
+				</div>
+			</div>
 		</div>
-		<input class="form-control btn btn-primary" onclick="calculate()" type=
-		"submit" value="Calculate">
 	</div>
+
+	<hr class="my-4">
 
 
 	<div class="container-fluid">
 		<div class="card">
 			<div class="card-body">
-				<table class=
-				"table table-hover table-sm text-center table-striped table-responsive-lg"
-				id="chart">
-					<tr class="clearfix">
-						<th class="table-toggle btn-outline-dark sort-alpha" onclick=
-						"sortTable(0)" role="button" scope="col">Hotel</th>
-
-						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(1)"
-						role="button" scope="col">AP Loss or Gain</th>
-
-						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(2)"
-						role="button" scope="col">AP Cost/Year</th>
-
-						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(3)"
-						role="button" scope="col">AP vs Typical Cost</th>
-
-						<th class="table-toggle btn-outline-dark sort-num" onclick="sortTable(4)"
-						role="button" scope="col">Typical Cost/Year</th>
-					</tr>
-
-
-					<tr>
-						<td>Grand Floridian</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Polynesian Village</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>BoardWalk Inn</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Yacht Club</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Beach Club</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Art of Animation - Suites</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Contemporary</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Fort Wilderness</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Animal Kingdom Lodge</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Wilderness Lodge</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Polynesian Village (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Grand Floridian (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Port Orleans - Riverside</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Coronado Springs</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>BoardWalk Inn (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Caribbean Beach</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Bay Lake Tower (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Wilderness Lodge (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Fort Wilderness (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Beach Club (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Saratoga Springs (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Old Key West (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Pop Century</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>All-Star Sports</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>All-Star Music</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>All-Star Movies</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Animal Kingdom Lodge (DVC)</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
-
-
-					<tr>
-						<td>Off-Site</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-
-						<td>
-						</td>
-					</tr>
+				<table class="table table-striped table-hover text-center" id="chart">
+					<thead>
+						<tr class="clearfix">
+							<th class="table-toggle btn-outline-dark sort-alpha" scope="col">
+							Hotel</th>
+
+							<th class="table-toggle btn-outline-dark sort-num" scope="col">AP Loss
+							or Gain</th>
+
+							<th class="table-toggle btn-outline-dark sort-num" scope="col">AP
+							Cost/Year</th>
+
+							<th class="table-toggle btn-outline-dark sort-num" scope="col">AP vs
+							Typical Cost</th>
+
+							<th class="table-toggle btn-outline-dark sort-num" scope="col">Typical
+							Cost/Year</th>
+						</tr>
+					</thead>
 				</table>
 			</div>
 
@@ -834,17 +403,59 @@
 
 
 	<footer class="text-center">
-		<p>Copyright <i aria-hidden="true" class="fa fa-copyright"></i> 2017 Patrick
-		Collins<br>
-		<a href="LICENSE.md"><i aria-hidden="true" class="fa fa-gavel"></i> MIT
-		License</a></p>
+		<p>
+			Copyright <i aria-hidden="true" class="fa fa-copyright"></i> 2017 Patrick
+			Collins
+		</p>
+
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#license">
+			<i aria-hidden="true" class="fa fa-gavel"></i> MIT License
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="license" tabindex="-1" role="dialog" aria-labelledby="license" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="license_label">MIT License</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+						Copyright (c) 2017 Patrick Collins
+
+						Permission is hereby granted, free of charge, to any person obtaining a copy
+						of this software and associated documentation files (the "Software"), to deal
+						in the Software without restriction, including without limitation the rights
+						to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+						copies of the Software, and to permit persons to whom the Software is
+						furnished to do so, subject to the following conditions:
+
+						The above copyright notice and this permission notice shall be included in all
+						copies or substantial portions of the Software.
+
+						THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+						IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+						FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+						AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+						LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+						OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+						SOFTWARE.
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	</footer>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js">
-	</script>
-	<script src=
-	"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js">
-	</script>
-	<script src="script.js">
-	</script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.3/js/dataTables.fixedHeader.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/dataTables.responsive.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap4.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
