@@ -25,35 +25,35 @@
                   border-color .15s ease-in-out,
                   box-shadow .15s ease-in-out;
 }
-
+@media (min-width: 1200px) {
+	#ap {
+		margin-left: 1em;
+	}
+}
 td {
 	text-align: center;
 }
 td:not(:first-child)::before {
 	content: "$";
+	font-family: FontAwesome;
 }
-
 legend {
   width: fit-content;
 }
-
 fieldset {
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25em;
 }
-
 @media (orientation : landscape) {
 		.jumbotron {
 	  height: 100vh;
 	}
 }
-
 @keyframes bump {
   0% { transform: translatey(0%); }
   50% { transform: translatey(25%); }
   100% { transform: translatey(0%); }
 }
-
 .bump {
   position :relative;
   -webkit-animation: bump 2s infinite; /* Safari 4.0 - 8.0 */

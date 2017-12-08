@@ -459,6 +459,8 @@ calculate = function() {
         ],
 			paging: false,
 			info: false,
-			searching: false
+			searching: false,
+      scrollX: true,
+      fixedColumns: true
 		} );
 };
