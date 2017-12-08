@@ -450,10 +450,13 @@ calculate = function() {
 		.DataTable( {
 			destroy: true,
 			data: results,
-			fixedHeader: true,
-			fixedColumn: true,
-			responsive: true,
-			scrollx: true,
+      columns: [
+            { title: "Hotel" },
+            { title: "AP Loss/Gain" },
+            { title: "AP Cost/Year" },
+            { title: "AP vs Typical Cost" },
+            { title: "Typical Cost/Year" }
+        ],
 			paging: false,
 			info: false,
 			searching: false

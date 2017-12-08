@@ -26,41 +26,6 @@
                   box-shadow .15s ease-in-out;
 }
 
-.sort-alpha::after {
-	content: " \f15e";
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-}
-
-.sort-alpha.sort::after {
-	content: " \f15d";
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-}
-
-.sort-num::after {
-	content: " \f162";
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-}
-
-.sort-num.sort::after {
-	content: " \f163";
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-}
-
-@media (min-width: 992px) {
-	.sort-alpha::after,
-	.sort-num::after {
-		float: right;
-	}
-}
-
 td:not(:first-child)::before {
 
 	content: "\f155  ";
