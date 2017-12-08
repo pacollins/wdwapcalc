@@ -26,12 +26,11 @@
                   box-shadow .15s ease-in-out;
 }
 
+td {
+	text-align: center;
+}
 td:not(:first-child)::before {
-
-	content: "\f155  ";
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
+	content: "$";
 }
 
 legend {
