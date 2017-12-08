@@ -1,30 +1,34 @@
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+$( document )
+	.ready( function() {
+		// Add smooth scrolling to all links
+		$( "a" )
+			.on( 'click', function( event ) {
+				// Make sure this.hash has a value before overriding default behavior
+				if ( this.hash !== "" ) {
+					// Prevent default anchor click behavior
+					event.preventDefault();
+					// Store hash
+					var hash = this.hash;
+					// Using jQuery's animate() method to add smooth page scroll
+					// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+					$( 'html, body' )
+						.animate( {
+							scrollTop: $( hash )
+								.offset()
+								.top
+						}, 800, function() {
+							// Add hash (#) to URL when done scrolling (default click behavior)
+							window.location.hash = hash;
+						} );
+				} // End if
+			} );
+	} );
+$( '#license' )
+	.on( 'shown.bs.modal', function() {
+		$( '#license' )
+			.trigger( 'focus' )
+	} )
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
-$('#license').on('shown.bs.modal', function () {
-  $('#license').trigger('focus')
-})
 function round( value, decimals ) {
 	return Number( Math.round( value + 'e' + decimals ) + 'e-' + decimals )
 		.toFixed( decimals );
@@ -450,17 +454,18 @@ calculate = function() {
 		.DataTable( {
 			destroy: true,
 			data: results,
-      columns: [
-            { title: "Hotel" },
-            { title: "AP Loss/Gain" },
-            { title: "AP Cost/Year" },
-            { title: "AP vs Typical Cost" },
-            { title: "Typical Cost/Year" }
+			columns: [
+				{ title: "Hotel" },
+				{ title: "AP Loss/Gain" },
+				{ title: "AP Cost/Year" },
+				{ title: "AP vs Typical Cost" },
+				{ title: "Typical Cost/Year" }
         ],
+			processing: true,
+			stateSave: true,
 			paging: false,
 			info: false,
 			searching: false,
-      scrollX: true,
-      fixedColumns: true
+			responsive: true
 		} );
 };
