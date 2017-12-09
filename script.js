@@ -1,7 +1,8 @@
+// Smooth Scroll To Content
 $( document )
 	.ready( function() {
 		// Add smooth scrolling to all links
-		$( "a" )
+		$( "#tocontent" )
 			.on( 'click', function( event ) {
 				// Make sure this.hash has a value before overriding default behavior
 				if ( this.hash !== "" ) {
@@ -16,78 +17,156 @@ $( document )
 							scrollTop: $( hash )
 								.offset()
 								.top
-						}, 800, function() {
-							// Add hash (#) to URL when done scrolling (default click behavior)
-							window.location.hash = hash;
-						} );
+						}, 800 );
 				} // End if
 			} );
 	} );
+
+// Show License Modal
 $( '#license' )
 	.on( 'shown.bs.modal', function() {
 		$( '#license' )
 			.trigger( 'focus' )
 	} )
 
+// Round Values
 function round( value, decimals ) {
 	return Number( Math.round( value + 'e' + decimals ) + 'e-' + decimals )
 		.toFixed( decimals );
 }
+
+// Main JS for Calculator and DataTables
+// Constants
+var pp = 829.64,
+  ppp = 925.49,
+  ticket = 48.99,
+  hopper = 7.98,
+  photopass = 169,
+  apFoodDiscount = 0.15,
+  apMerchDiscount = 0.2,
+  wonderlandDiscount = 0.2,
+  regWonderlandCost = 175,
+  apWonderlandCost = 150,
+  regTip = 0.18,
+  apTip = 0.18,
+  visaFoodDiscount = 0.1,
+  visaMerchDiscount = 0.1,
+  t1HotelDiscount = 0.3,
+  t2HotelDiscount = 0.25,
+  t3HotelDiscount = 0.2,
+  t4HotelDiscount = 0.15,
+  // Hotels
+  // Disney Vacation Club Rental
+  akldvchotel = 114,
+  bltdvchotel = 224,
+  bcdvchotel = 240,
+  bwdvchotel = 160,
+  gfdvchotel = 272,
+  okwdvchotel = 160,
+  pvdvchotel = 256,
+  ssdvchotel = 176,
+  wldvchotel = 240,
+  // Deluxe Hotels
+  aklhotel = 378,
+  bchotel = 441,
+  bwhotel = 483,
+  conhotel = 450,
+  gfhotel = 646,
+  pvhotel = 536,
+  wlhotel = 366,
+  ychotel = 441,
+  // Moderate Hotels
+  cbhotel = 187,
+  cshotel = 201,
+  pohotel = 224,
+  // Value Hotels
+  amohotel = 110,
+  amuhotel = 110,
+  asphotel = 110,
+  aoahotel = 148,
+  aoashotel = 354,
+  pchotel = 126,
+  fwhotel = 364,
+  // Off-Site or Custom Price
+  offhotel = 90,
+  // Constants Array
+  constants = [
+		[ "Platinum Pass +", "$" + round( ppp, 2 ) ],
+		[ "Plainum Pass", "$" + round( pp, 2 ) ],
+		[ "Ticket/Day", "$" + round( ticket, 2 ) ],
+		[ "Hopper/Day", "$" + round( hopper, 2 ) ],
+		[ "Photopass", "$" + round( photopass, 2 ) ],
+		[ "AP Food Discount", round( apFoodDiscount*100, 0 ) + "%"],
+		[ "AP Merch Discount", round( apMerchDiscount*100, 0 ) + "%"],
+		[ "VISA Food Discount", round( visaFoodDiscount*100, 0 ) + "%"],
+		[ "VISA Merch Discount", round( visaMerchDiscount*100, 0 ) + "%"],
+    [ "Tier 1 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"],
+		[ "Tier 2 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"],
+		[ "Tier 3 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"],
+		[ "Tier 4 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"]
+	],
+  // Hotels Array
+	hotels = [
+		[ "Animal Kingdom Lodge (DVC)", "$" + round( akldvchotel, 2 ) ],
+		[ "Bay Lake Tower (DVC)", "$" + round( bltdvchotel, 2 ) ],
+		[ "Beach Club (DVC)", "$" + round( bcdvchotel, 2 ) ],
+		[ "BoardWalk Inn (DVC)", "$" + round( bwdvchotel, 2 ) ],
+		[ "Grand Floridian (DVC)", "$" + round( gfdvchotel, 2 ) ],
+		[ "Old Key West (DVC)", "$" + round( okwdvchotel, 2 ) ],
+		[ "Grand Floridian", "$" + round( gfhotel, 2 ) ],
+		[ "Polynesian Village (DVC)", "$" + round( pvdvchotel, 2 ) ],
+		[ "Saratoga Springs (DVC)", "$" + round( ssdvchotel, 2 ) ],
+		[ "Wilderness Lodge (DVC)", "$" + round( wldvchotel, 2 ) ],
+		[ "Animal Kingdom Lodge", "$" + round( aklhotel, 2 ) ],
+		[ "Beach Club", "$" + round( bchotel, 2 ) ],
+		[ "BoardWalk Inn", "$" + round( bwhotel, 2 ) ],
+		[ "Contemporary", "$" + round( conhotel, 2 ) ],
+		[ "Grand Floridian", "$" + round( gfhotel, 2 ) ],
+		[ "Polynesian Village", "$" + round( pvhotel, 2 ) ],
+		[ "Wilderness Lodge", "$" + round( wlhotel, 2 ) ],
+		[ "Yacht Club", "$" + round( ychotel, 2 ) ],
+		[ "Caribbean Beach", "$" + round( cbhotel, 2 ) ],
+		[ "Coronado Springs", "$" + round( cshotel, 2 ) ],
+		[ "Port Orleans", "$" + round( pohotel, 2 ) ],
+		[ "All-Star Movies", "$" + round( amohotel, 2 ) ],
+		[ "All-Star Music", "$" + round( amuhotel, 2 ) ],
+		[ "All-Star Sports", "$" + round( asphotel, 2 ) ],
+		[ "Art of Animation", "$" + round( aoahotel, 2 ) ],
+		[ "Art of Animation - Suites", "$" + round( aoashotel, 2 ) ],
+		[ "Pop Century", "$" + round( pchotel, 2 ) ],
+		[ "Fort Wilderness", "$" + round( fwhotel, 2 ) ],
+		[ "Off-Site", "$" + round( offhotel, 2 ) ]
+	];
+
+  // Create Constants DataTable
+  $( '#chartconstants' )
+    .DataTable( {
+      data: constants,
+      columns: [
+        { title: "Item" },
+        { title: "Value" }
+        ],
+      paging: false,
+      info: false,
+      searching: false,
+    } );
+
+  // Create Hotels DataTable
+  $( '#charthotels' )
+    .DataTable( {
+      data: hotels,
+      columns: [
+        { title: "Hotel" },
+        { title: "Cost/Night" }
+        ],
+      paging: false,
+      info: false,
+      searching: false
+    } );
+
+// Calculate AP and Create DataTable
 calculate = function() {
-	// Constants
-	var pp = 829.64,
-		ppp = 925.49,
-		ticket = 48.99,
-		hopper = 7.98,
-		photopass = 169,
-		apFoodDiscount = 0.15,
-		apMerchDiscount = 0.2,
-		wonderlandDiscount = 0.2,
-		regWonderlandCost = 175,
-		apWonderlandCost = 150,
-		regTip = 0.18,
-		apTip = 0.18,
-		visaFoodDiscount = 0.1,
-		visaMerchDiscount = 0.1,
-		t1HotelDiscount = 0.3,
-		t2HotelDiscount = 0.25,
-		t3HotelDiscount = 0.2,
-		t4HotelDiscount = 0.15,
-		// Hotels
-		// Disney Vacation Club Rental
-		akldvchotel = 114,
-		bltdvchotel = 224,
-		bcdvchotel = 240,
-		bwdvchotel = 160,
-		gfdvchotel = 272,
-		okwdvchotel = 160,
-		pvdvchotel = 256,
-		ssdvchotel = 176,
-		wldvchotel = 240,
-		// Deluxe Hotels
-		aklhotel = 378,
-		bchotel = 441,
-		bwhotel = 483,
-		conhotel = 450,
-		gfhotel = 646,
-		pvhotel = 536,
-		wlhotel = 366,
-		ychotel = 441,
-		// Moderate Hotels
-		cbhotel = 187,
-		cshotel = 201,
-		pohotel = 224,
-		// Value Hotels
-		amohotel = 110,
-		amuhotel = 110,
-		asphotel = 110,
-		aoahotel = 148,
-		aoashotel = 354,
-		pchotel = 126,
-		fwhotel = 364,
-		// Off-Site or Custom Price
-		offhotel = 90,
-		customhotel = document.getElementById( "custom_hotel" )
+		var customhotel = document.getElementById( "custom_hotel" )
 		.value,
 		// Typical Trip Variables
 		regVisa = document.getElementById( "reg_visa" )
@@ -357,52 +436,6 @@ calculate = function() {
 		customap = round( ( customhotel * apNights * apRooms ) + ap, 2 ),
 		customtyp = round( ( customhotel * regNights * regRooms ) + typ, 2 );
 	// Display Calculations
-	var constants = [
-		[ "Platinum Pass +", round( ppp, 2 ) ],
-		[ "Plainum Pass", round( pp, 2 ) ],
-		[ "Ticket/Day", round( ticket, 2 ) ],
-		[ "Hopper/Day", round( hopper, 2 ) ],
-		[ "Photopass", round( photopass, 2 ) ],
-		[ "AP Food Discount", round( apFoodDiscount, 2 ) ],
-		[ "AP Merch Discount", round( apMerchDiscount, 2 ) ],
-		[ "VISA Food Discount", round( visaFoodDiscount, 2 ) ],
-		[ "VISA Merch Discount", round( visaMerchDiscount, 2 ) ],
-		[ "Tier 1 Hotel Discount", round( t1HotelDiscount, 2 ) ],
-		[ "Tier 2 Hotel Discount", round( t1HotelDiscount, 2 ) ],
-		[ "Tier 3 Hotel Discount", round( t1HotelDiscount, 2 ) ],
-		[ "Tier 4 Hotel Discount", round( t1HotelDiscount, 2 ) ]
-	];
-	var hotels = [
-		[ "Animal Kingdom Lodge (DVC)", round( akldvchotel, 2 ) ],
-		[ "Bay Lake Tower (DVC)", round( bltdvchotel, 2 ) ],
-		[ "Beach Club (DVC)", round( bcdvchotel, 2 ) ],
-		[ "BoardWalk Inn (DVC)", round( bwdvchotel, 2 ) ],
-		[ "Grand Floridian (DVC)", round( gfdvchotel, 2 ) ],
-		[ "Old Key West (DVC)", round( okwdvchotel, 2 ) ],
-		[ "Grand Floridian", round( gfhotel, 2 ) ],
-		[ "Polynesian Village (DVC)", round( pvdvchotel, 2 ) ],
-		[ "Saratoga Springs (DVC)", round( ssdvchotel, 2 ) ],
-		[ "Wilderness Lodge (DVC)", round( wldvchotel, 2 ) ],
-		[ "Animal Kingdom Lodge", round( aklhotel, 2 ) ],
-		[ "Beach Club", round( bchotel, 2 ) ],
-		[ "BoardWalk Inn", round( bwhotel, 2 ) ],
-		[ "Contemporary", round( conhotel, 2 ) ],
-		[ "Grand Floridian", round( gfhotel, 2 ) ],
-		[ "Polynesian Village", round( pvhotel, 2 ) ],
-		[ "Wilderness Lodge", round( wlhotel, 2 ) ],
-		[ "Yacht Club", round( ychotel, 2 ) ],
-		[ "Caribbean Beach", round( cbhotel, 2 ) ],
-		[ "Coronado Springs", round( cshotel, 2 ) ],
-		[ "Port Orleans", round( pohotel, 2 ) ],
-		[ "All-Star Movies", round( amohotel, 2 ) ],
-		[ "All-Star Music", round( amuhotel, 2 ) ],
-		[ "All-Star Sports", round( asphotel, 2 ) ],
-		[ "Art of Animation", round( aoahotel, 2 ) ],
-		[ "Art of Animation - Suites", round( aoashotel, 2 ) ],
-		[ "Pop Century", round( pchotel, 2 ) ],
-		[ "Fort Wilderness", round( fwhotel, 2 ) ],
-		[ "Off-Site", round( offhotel, 2 ) ]
-	];
 	var results = [
 		[ "Animal Kingdom Lodge (DVC)", akldvcapmargin, akldvcap, round( akldvcap -
 			akldvctyp, 2 ), akldvctyp ],

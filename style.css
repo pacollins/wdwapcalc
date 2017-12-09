@@ -36,9 +36,8 @@ td {
 	text-align: center;
 }
 
-td:not(:first-child)::before {
+#chart td:not(:first-child)::before {
 	content: "$";
-	font-family: FontAwesome;
 }
 
 legend {
@@ -50,11 +49,11 @@ fieldset {
 	border-radius: .25em;
 }
 
-@media (orientation: landscape) {
+/* @media (orientation: landscape) {
 	.jumbotron {
 		height: 100vh;
 	}
-}
+}*/
 
 @keyframes bump {
 	0% {
@@ -73,6 +72,10 @@ fieldset {
 	-webkit-animation: bump 2s infinite;
 	/* Safari 4.0 - 8.0 */
 	animation: bump 2s infinite;
+}
+
+.row {
+	padding-bottom: 0;
 }
 
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
