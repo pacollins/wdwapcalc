@@ -21,91 +21,88 @@ $( document )
 				} // End if
 			} );
 	} );
-
 // Show License Modal
 $( '#license' )
 	.on( 'shown.bs.modal', function() {
 		$( '#license' )
-			.trigger( 'focus' )
-	} )
-
+			.trigger( 'focus' );
+	} );
 // Round Values
 function round( value, decimals ) {
 	return Number( Math.round( value + 'e' + decimals ) + 'e-' + decimals )
 		.toFixed( decimals );
 }
-
 // Main JS for Calculator and DataTables
 // Constants
 var pp = 829.64,
-  ppp = 925.49,
-  ticket = 48.99,
-  hopper = 7.98,
-  photopass = 169,
-  apFoodDiscount = 0.15,
-  apMerchDiscount = 0.2,
-  wonderlandDiscount = 0.2,
-  regWonderlandCost = 175,
-  apWonderlandCost = 150,
-  regTip = 0.18,
-  apTip = 0.18,
-  visaFoodDiscount = 0.1,
-  visaMerchDiscount = 0.1,
-  t1HotelDiscount = 0.3,
-  t2HotelDiscount = 0.25,
-  t3HotelDiscount = 0.2,
-  t4HotelDiscount = 0.15,
-  // Hotels
-  // Disney Vacation Club Rental
-  akldvchotel = 114,
-  bltdvchotel = 224,
-  bcdvchotel = 240,
-  bwdvchotel = 160,
-  gfdvchotel = 272,
-  okwdvchotel = 160,
-  pvdvchotel = 256,
-  ssdvchotel = 176,
-  wldvchotel = 240,
-  // Deluxe Hotels
-  aklhotel = 378,
-  bchotel = 441,
-  bwhotel = 483,
-  conhotel = 450,
-  gfhotel = 646,
-  pvhotel = 536,
-  wlhotel = 366,
-  ychotel = 441,
-  // Moderate Hotels
-  cbhotel = 187,
-  cshotel = 201,
-  pohotel = 224,
-  // Value Hotels
-  amohotel = 110,
-  amuhotel = 110,
-  asphotel = 110,
-  aoahotel = 148,
-  aoashotel = 354,
-  pchotel = 126,
-  fwhotel = 364,
-  // Off-Site or Custom Price
-  offhotel = 90,
-  // Constants Array
-  constants = [
+	ppp = 925.49,
+	ticket = 48.99,
+	hopper = 7.98,
+	photopass = 169,
+	apFoodDiscount = 0.15,
+	apMerchDiscount = 0.2,
+	wonderlandDiscount = 0.2,
+	regWonderlandCost = 175,
+	apWonderlandCost = 150,
+	regTip = 0.18,
+	apTip = 0.18,
+	visaFoodDiscount = 0.1,
+	visaMerchDiscount = 0.1,
+	t1HotelDiscount = 0.3,
+	t2HotelDiscount = 0.25,
+	t3HotelDiscount = 0.2,
+	t4HotelDiscount = 0.15,
+	// Hotels
+	// Disney Vacation Club Rental
+	akldvchotel = 114,
+	bltdvchotel = 224,
+	bcdvchotel = 240,
+	bwdvchotel = 160,
+	gfdvchotel = 272,
+	okwdvchotel = 160,
+	pvdvchotel = 256,
+	ssdvchotel = 176,
+	wldvchotel = 240,
+	// Deluxe Hotels
+	aklhotel = 378,
+	bchotel = 441,
+	bwhotel = 483,
+	conhotel = 450,
+	gfhotel = 646,
+	pvhotel = 536,
+	wlhotel = 366,
+	ychotel = 441,
+	// Moderate Hotels
+	cbhotel = 187,
+	cshotel = 201,
+	pohotel = 224,
+	// Value Hotels
+	amohotel = 110,
+	amuhotel = 110,
+	asphotel = 110,
+	aoahotel = 148,
+	aoashotel = 354,
+	pchotel = 126,
+	fwhotel = 364,
+	// Off-Site or Custom Price
+	offhotel = 90,
+	// Constants Array
+	constants = [
 		[ "Platinum Pass +", "$" + round( ppp, 2 ) ],
 		[ "Plainum Pass", "$" + round( pp, 2 ) ],
 		[ "Ticket/Day", "$" + round( ticket, 2 ) ],
 		[ "Hopper/Day", "$" + round( hopper, 2 ) ],
 		[ "Photopass", "$" + round( photopass, 2 ) ],
-		[ "AP Food Discount", round( apFoodDiscount*100, 0 ) + "%"],
-		[ "AP Merch Discount", round( apMerchDiscount*100, 0 ) + "%"],
-		[ "VISA Food Discount", round( visaFoodDiscount*100, 0 ) + "%"],
-		[ "VISA Merch Discount", round( visaMerchDiscount*100, 0 ) + "%"],
-    [ "Tier 1 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"],
-		[ "Tier 2 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"],
-		[ "Tier 3 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"],
-		[ "Tier 4 Hotel Discount", round( t1HotelDiscount*100, 0 ) + "%"]
+		[ "AP Food Discount", round( apFoodDiscount * 100, 0 ) + "%" ],
+		[ "AP Merch Discount", round( apMerchDiscount * 100, 0 ) + "%" ],
+		[ "VISA Food Discount", round( visaFoodDiscount * 100, 0 ) + "%" ],
+		[ "VISA Merch Discount", round( visaMerchDiscount * 100, 0 ) + "%" ],
+    [ "Tier 1 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ],
+		[ "Tier 2 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ],
+		[ "Tier 3 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ],
+		[ "Tier 4 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ]
 	],
-  // Hotels Array
+	// Hotels Array
 	hotels = [
 		[ "Animal Kingdom Lodge (DVC)", "$" + round( akldvchotel, 2 ) ],
 		[ "Bay Lake Tower (DVC)", "$" + round( bltdvchotel, 2 ) ],
@@ -137,36 +134,33 @@ var pp = 829.64,
 		[ "Fort Wilderness", "$" + round( fwhotel, 2 ) ],
 		[ "Off-Site", "$" + round( offhotel, 2 ) ]
 	];
-
-  // Create Constants DataTable
-  $( '#chartconstants' )
-    .DataTable( {
-      data: constants,
-      columns: [
-        { title: "Item" },
-        { title: "Value" }
+// Create Constants DataTable
+$( '#chartconstants' )
+	.DataTable( {
+		data: constants,
+		columns: [
+			{ title: "Item" },
+			{ title: "Value" }
         ],
-      paging: false,
-      info: false,
-      searching: false,
-    } );
-
-  // Create Hotels DataTable
-  $( '#charthotels' )
-    .DataTable( {
-      data: hotels,
-      columns: [
-        { title: "Hotel" },
-        { title: "Cost/Night" }
+		paging: false,
+		info: false,
+		searching: false,
+	} );
+// Create Hotels DataTable
+$( '#charthotels' )
+	.DataTable( {
+		data: hotels,
+		columns: [
+			{ title: "Hotel" },
+			{ title: "Cost/Night" }
         ],
-      paging: false,
-      info: false,
-      searching: false
-    } );
-
+		paging: false,
+		info: false,
+		searching: false
+	} );
 // Calculate AP and Create DataTable
 calculate = function() {
-		var customhotel = document.getElementById( "custom_hotel" )
+	var customhotel = document.getElementById( "custom_hotel" )
 		.value,
 		// Typical Trip Variables
 		regVisa = document.getElementById( "reg_visa" )
@@ -437,51 +431,72 @@ calculate = function() {
 		customtyp = round( ( customhotel * regNights * regRooms ) + typ, 2 );
 	// Display Calculations
 	var results = [
-		[ "Animal Kingdom Lodge (DVC)", akldvcapmargin, akldvcap, round( akldvcap -
-			akldvctyp, 2 ), akldvctyp ],
-		[ "Bay Lake Tower (DVC)", bltdvcapmargin, bltdvcap, round( bltdvcap -
-			bltdvctyp, 2 ), bltdvctyp ],
-		[ "Beach Club (DVC)", bcdvcapmargin, bcdvcap, round( bcdvcap - bcdvctyp, 2 ),
-			bcdvctyp ],
-		[ "BoardWalk Inn (DVC)", bwdvcapmargin, bwdvcap, round( bwdvcap - bwdvctyp, 2 ),
-			bwdvctyp ],
-		[ "Grand Floridian (DVC)", gfdvcapmargin, gfdvcap, round( gfdvcap - gfdvctyp,
-			2 ), gfdvctyp ],
-		[ "Old Key West (DVC)", okwdvcapmargin, okwdvcap, round( okwdvcap - okwdvctyp,
-			2 ), okwdvctyp ],
-		[ "Polynesian Village (DVC)", pvdvcapmargin, pvdvcap, round( pvdvcap -
-			pvdvctyp, 2 ), pvdvctyp ],
-		[ "Saratoga Springs (DVC)", ssdvcapmargin, ssdvcap, round( ssdvcap - ssdvctyp,
-			2 ), ssdvctyp ],
-		[ "Wilderness Lodge (DVC)", wldvcapmargin, wldvcap, round( wldvcap - wldvctyp,
-			2 ), wldvctyp ],
-		[ "Animal Kingdom Lodge", aklapmargin, aklap, round( aklap - akltyp, 2 ),
-			akltyp ],
-		[ "Beach Club", bcapmargin, bcap, round( bcap - bctyp, 2 ), bctyp ],
-		[ "BoardWalk Inn", bwapmargin, bwap, round( bwap - bwtyp, 2 ), bwtyp ],
-		[ "Contemporary", conapmargin, conap, round( conap - contyp, 2 ), contyp ],
-		[ "Grand Floridian", gfapmargin, gfap, round( gfap - gftyp, 2 ), gftyp ],
-		[ "Polynesian Village", pvapmargin, pvap, round( pvap - pvtyp, 2 ), pvtyp ],
-		[ "Wilderness Lodge", wlapmargin, wlap, round( wlap - wltyp, 2 ), wltyp ],
-		[ "Yacht Club", ycapmargin, ycap, round( ycap - yctyp, 2 ), yctyp ],
-		[ "Caribbean Beach", cbapmargin, cbap, round( cbap - cbtyp, 2 ), cbtyp ],
-		[ "Coronado Springs", csapmargin, csap, round( csap - cstyp, 2 ), cstyp ],
-		[ "Port Orleans", poapmargin, poap, round( poap - potyp, 2 ), potyp ],
-		[ "All-Star Movies", amoapmargin, amoap, round( amoap - amotyp, 2 ),
-			amotyp ],
-		[ "All-Star Music", amuapmargin, amuap, round( amuap - amutyp, 2 ),
-			amutyp ],
-		[ "All-Star Sports", aspapmargin, aspap, round( aspap - asptyp, 2 ),
-			asptyp ],
-		[ "Art of Animation", aoaapmargin, aoaap, round( aoaap - aoatyp, 2 ),
-			aoatyp ],
-		[ "Art of Animation - Suites", aoasapmargin, aoasap, round( aoasap - aoastyp,
-			2 ), aoastyp ],
-		[ "Pop Century", pcapmargin, pcap, round( pcap - pctyp, 2 ), pctyp ],
-		[ "Fort Wilderness", fwapmargin, fwap, round( fwap - fwtyp, 2 ), fwtyp ],
-		[ "Off-Site", offapmargin, offap, round( offap - offtyp, 2 ), offtyp ],
-		[ "Custom", customapmargin, customap, round( customap - customtyp, 2 ),
-			customtyp ]
+		[ "Animal Kingdom Lodge (DVC)", "$" + akldvcapmargin, "$" + akldvcap, "$" +
+			round( akldvcap - akldvctyp, 2 ), "$" + akldvctyp ],
+		[ "Bay Lake Tower (DVC)", "$" + bltdvcapmargin, "$" + bltdvcap, "$" + round(
+			bltdvcap - bltdvctyp, 2 ), "$" + bltdvctyp ],
+		[ "Beach Club (DVC)", "$" + bcdvcapmargin, "$" + bcdvcap, "$" + round(
+				bcdvcap - bcdvctyp, 2 ),
+			"$" + bcdvctyp ],
+		[ "BoardWalk Inn (DVC)", "$" + bwdvcapmargin, "$" + bwdvcap, "$" + round(
+				bwdvcap - bwdvctyp, 2 ),
+			"$" + bwdvctyp ],
+		[ "Grand Floridian (DVC)", "$" + gfdvcapmargin, "$" + gfdvcap, "$" + round(
+			gfdvcap - gfdvctyp, 2 ), "$" + gfdvctyp ],
+		[ "Old Key West (DVC)", "$" + okwdvcapmargin, "$" + okwdvcap, "$" + round(
+			okwdvcap - okwdvctyp, 2 ), "$" + okwdvctyp ],
+		[ "Polynesian Village (DVC)", "$" + pvdvcapmargin, "$" + pvdvcap, "$" + round(
+			pvdvcap - pvdvctyp, 2 ), "$" + pvdvctyp ],
+		[ "Saratoga Springs (DVC)", "$" + ssdvcapmargin, "$" + ssdvcap, "$" + round(
+			ssdvcap - ssdvctyp, 2 ), "$" + ssdvctyp ],
+		[ "Wilderness Lodge (DVC)", "$" + wldvcapmargin, "$" + wldvcap, "$" + round(
+			wldvcap - wldvctyp, 2 ), "$" + wldvctyp ],
+		[ "Animal Kingdom Lodge", "$" + aklapmargin, "$" + aklap, "$" + round( aklap -
+				akltyp, 2 ),
+			"$" + akltyp ],
+		[ "Beach Club", "$" + bcapmargin, "$" + bcap, "$" + round( bcap - bctyp, 2 ),
+			"$" + bctyp ],
+		[ "BoardWalk Inn", "$" + bwapmargin, "$" + bwap, "$" + round( bwap - bwtyp, 2 ),
+			"$" + bwtyp ],
+		[ "Contemporary", "$" + conapmargin, "$" + conap, "$" + round( conap - contyp,
+			2 ), "$" + contyp ],
+		[ "Grand Floridian", "$" + gfapmargin, "$" + gfap, "$" + round( gfap - gftyp,
+			2 ), "$" + gftyp ],
+		[ "Polynesian Village", "$" + pvapmargin, "$" + pvap, "$" + round( pvap -
+			pvtyp, 2 ), "$" + pvtyp ],
+		[ "Wilderness Lodge", "$" + wlapmargin, "$" + wlap, "$" + round( wlap - wltyp,
+			2 ), "$" + wltyp ],
+		[ "Yacht Club", "$" + ycapmargin, "$" + ycap, "$" + round( ycap - yctyp, 2 ),
+			"$" + yctyp ],
+		[ "Caribbean Beach", "$" + cbapmargin, "$" + cbap, "$" + round( cbap - cbtyp,
+			2 ), "$" + cbtyp ],
+		[ "Coronado Springs", "$" + csapmargin, "$" + csap, "$" + round( csap - cstyp,
+			2 ), "$" + cstyp ],
+		[ "Port Orleans", "$" + poapmargin, "$" + poap, "$" + round( poap - potyp, 2 ),
+			"$" + potyp ],
+		[ "All-Star Movies", "$" + amoapmargin, "$" + amoap, "$" + round( amoap -
+				amotyp, 2 ),
+			"$" + amotyp ],
+		[ "All-Star Music", "$" + amuapmargin, "$" + amuap, "$" + round( amuap -
+				amutyp, 2 ),
+			"$" + amutyp ],
+		[ "All-Star Sports", "$" + aspapmargin, "$" + aspap, "$" + round( aspap -
+				asptyp, 2 ),
+			"$" + asptyp ],
+		[ "Art of Animation", "$" + aoaapmargin, "$" + aoaap, "$" + round( aoaap -
+				aoatyp, 2 ),
+			"$" + aoatyp ],
+		[ "Art of Animation - Suites", "$" + aoasapmargin, "$" + aoasap, "$" + round(
+			aoasap - aoastyp, 2 ), "$" + aoastyp ],
+		[ "Pop Century", "$" + pcapmargin, "$" + pcap, "$" + round( pcap - pctyp, 2 ),
+			"$" + pctyp ],
+		[ "Fort Wilderness", "$" + fwapmargin, "$" + fwap, "$" + round( fwap - fwtyp,
+			2 ), "$" + fwtyp ],
+		[ "Off-Site", "$" + offapmargin, "$" + offap, "$" + round( offap - offtyp, 2 ),
+			"$" + offtyp ],
+		[ "Custom", "$" + customapmargin, "$" + customap, "$" + round( customap -
+				customtyp, 2 ),
+			"$" + customtyp ]
 	];
 	$( '#chart' )
 		.DataTable( {

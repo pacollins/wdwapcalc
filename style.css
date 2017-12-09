@@ -1,43 +1,17 @@
+/* Overwrite Bootstrap v4 */
+
 a {
-	text-decoration: none;
 	color: #007bff;
+	text-decoration: none;
 }
 
 a:hover {
-	text-decoration: none;
 	color: #0069d9;
-}
-
-.table-toggle {
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 3;
-	transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-	-o-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-	-webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-	-moz-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-	-ms-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-@media (min-width: 1200px) {
-	#ap {
-		margin-left: 1em;
-	}
+	text-decoration: none;
 }
 
 td {
 	text-align: center;
-}
-
-#chart td:not(:first-child)::before {
-	content: "$";
 }
 
 legend {
@@ -49,34 +23,11 @@ fieldset {
 	border-radius: .25em;
 }
 
-/* @media (orientation: landscape) {
-	.jumbotron {
-		height: 100vh;
-	}
-}*/
-
-@keyframes bump {
-	0% {
-		transform: translatey(0%);
-	}
-	50% {
-		transform: translatey(25%);
-	}
-	100% {
-		transform: translatey(0%);
-	}
-}
-
-.bump {
-	position: relative;
-	-webkit-animation: bump 2s infinite;
-	/* Safari 4.0 - 8.0 */
-	animation: bump 2s infinite;
-}
-
 .row {
 	padding-bottom: 0;
 }
+
+/* Overwrite DataTables */
 
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
@@ -104,4 +55,49 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before 
 table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,
 table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 	transform: rotate(90deg);
+}
+
+/* Custom */
+
+.table-toggle {
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 3;
+	transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	-o-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	-webkit-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	-moz-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	-ms-transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+@keyframes bump {
+	0% {
+		transform: translatey(0%);
+	}
+	50% {
+		transform: translatey(25%);
+	}
+	100% {
+		transform: translatey(0%);
+	}
+}
+
+.bump {
+	position: relative;
+	-webkit-animation: bump 2s infinite;
+	/* Safari 4.0 - 8.0 */
+	animation: bump 2s infinite;
+}
+
+@media (min-width: 1200px) {
+	#ap {
+		margin-left: 1em;
+	}
 }
