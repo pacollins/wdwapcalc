@@ -59,6 +59,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 
 /* Custom */
 
+.dtr-data:before{
+	content:'$';
+}
+
 .table-toggle {
 	text-align: center;
 	white-space: nowrap;
