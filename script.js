@@ -395,7 +395,7 @@ calculate = function() {
 		offap = round( ( offhotel * apNights * apRooms ) + ap, 2 ),
 		offtyp = round( ( offhotel * regNights * regRooms ) + typ, 2 ),
 		// Custom Calculations
-		customapmargin = round( ( customhotel * apNights * apRooms ) + apmargin, 2 ),
+		customapmargin = round( apmargin, 2 ),
 		customap = round( ( customhotel * apNights * apRooms ) + ap, 2 ),
 		customtyp = round( ( customhotel * regNights * regRooms ) + typ, 2 );
 	// Display Calculations
