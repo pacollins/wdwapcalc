@@ -162,49 +162,49 @@ $( '#charthotels' )
 	$('th').addClass('table-toggle btn-outline-dark');
 // Calculate AP and Create DataTable
 calculate = function() {
-	var customhotel = document.getElementById( "custom_hotel" ).value,
+	var customhotel = Number(document.getElementById( "custom_hotel" ).value),
 		// Typical Trip Variables
-		regVisa = document.getElementById( "reg_visa" ).value,
+		regVisa = Number(document.getElementById( "reg_visa" ).value),
 		regFoodDiscount = 0,
 		regMerchDiscount = 0,
-		regPhotopass = document.getElementById( "reg_photopass" ).value,
-		regNum = document.getElementById( "reg_num" ).value,
-		regUpgrade = document.getElementById( "reg_upgrade" ).value,
-		regDays = document.getElementById( "reg_days" ).value,
-		regFood = document.getElementById( "reg_food" ).value,
-		regTrips = document.getElementById( "reg_trips" ).value,
-		regNights = document.getElementById( "reg_nights" ).value,
-		regRooms = document.getElementById( "reg_rooms" ).value,
-		regRoomsPeople = document.getElementById( "reg_rooms_people" ).value,
-		regMerch = document.getElementById( "reg_merch" ).value,
-		regWonderland = document.getElementById( "reg_wonderland" ).value,
+		regPhotopass = Number(document.getElementById( "reg_photopass" ).value),
+		regNum = Number(document.getElementById( "reg_num" ).value),
+		regUpgrade = Number(document.getElementById( "reg_upgrade" ).value),
+		regDays = Number(document.getElementById( "reg_days" ).value),
+		regFood = Number(document.getElementById( "reg_food" ).value),
+		regTrips = Number(document.getElementById( "reg_trips" ).value),
+		regNights = Number(document.getElementById( "reg_nights" ).value),
+		regRooms = Number(document.getElementById( "reg_rooms" ).value),
+		regRoomsPeople = Number(document.getElementById( "reg_rooms_people" ).value),
+		regMerch = Number(document.getElementById( "reg_merch" ).value),
+		regWonderland = Number(document.getElementById( "reg_wonderland" ).value),
 		// Annual Pass Trip Variables
-		apNum = document.getElementById( "ap_num" ).value,
-		apUpgrade = document.getElementById( "ap_upgrade" ).value,
-		apRegNum = document.getElementById( "ap_reg_num" ).value,
-		apRegUpgrade = document.getElementById( "ap_reg_upgrade" ).value,
-		apDays = document.getElementById( "ap_days" ).value,
-		apFood = document.getElementById( "ap_food" ).value,
-		apTrips = document.getElementById( "ap_trips" ).value,
-		apNights = document.getElementById( "ap_nights" ).value,
-		apRooms = document.getElementById( "ap_rooms" ).value,
-		apRoomsPeople = document.getElementById( "ap_rooms_people" ).value,
-		apMerch = document.getElementById( "ap_merch" ).value,
-		apWonderland = document.getElementById( "ap_wonderland" ).value;
+		apNum = Number(document.getElementById( "ap_num" ).value),
+		apUpgrade = Number(document.getElementById( "ap_upgrade" ).value),
+		apRegNum = Number(document.getElementById( "ap_reg_num" ).value),
+		apRegUpgrade = Number(document.getElementById( "ap_reg_upgrade" ).value),
+		apDays = Number(document.getElementById( "ap_days" ).value),
+		apFood = Number(document.getElementById( "ap_food" ).value),
+		apTrips = Number(document.getElementById( "ap_trips" ).value),
+		apNights = Number(document.getElementById( "ap_nights" ).value),
+		apRooms = Number(document.getElementById( "ap_rooms" ).value),
+		apRoomsPeople = Number(document.getElementById( "ap_rooms_people" ).value),
+		apMerch = Number(document.getElementById( "ap_merch" ).value),
+		apWonderland = Number(document.getElementById( "ap_wonderland" ).value);
 	// Optional Variables
 	// Calculations
 	if ( regPhotopass > 0 ) {
 		regPhotopass = photopass;
 	} else {
 		regPhotopass = 0;
-	}
+	};
 	if ( regVisa > 0 ) {
 		regFoodDiscount = visaFoodDiscount;
 		regMerchDiscount = visaMerchDiscount;
 	} else {
 		regFoodDiscount = 0;
 		regMerchDiscount = 0;
-	}
+	};
 	if ( regWonderland > 0 ) {
 		regFoodDiscount = wonderlandDiscount;
 		regWonderlandCost = regWonderlandCost;
@@ -213,22 +213,22 @@ calculate = function() {
 		regFoodDiscount = regFoodDiscount;
 		regWonderlandCost = 0;
 		regTip = regTip;
-	}
+	};
 	if ( regUpgrade > 0 ) {
 		regUpgrade = hopper;
 	} else {
 		regUpgrade = 0;
-	}
+	};
 	if ( apUpgrade > 0 ) {
 		apUpgrade = ppp;
 	} else {
 		apUpgrade = pp;
-	}
+	};
 	if ( apRegUpgrade > 0 ) {
 		apRegUpgrade = hopper;
 	} else {
 		apRegUpgrade = 0;
-	}
+	};
 	if ( apWonderland > 0 ) {
 		apFoodDiscount = wonderlandDiscount;
 		apWonderlandCost = apWonderlandCost;
@@ -237,10 +237,11 @@ calculate = function() {
 		apFoodDiscount = apFoodDiscount;
 		apWonderlandCost = 0;
 		apTip = apTip;
-	}
+	};
 	// Base Calculations
 	var apmargin = ( photopass * apTrips ) + ( apFood * apFoodDiscount * ( apNum +
-			apRegNum ) * apDays * ( 1 - apTip ) ) + ( apMerch * apMerchDiscount ) - (
+			apRegNum ) * apDays * ( 1 - apTip ) ) + ( apFood * apFoodDiscount * ( apNum +
+					apRegNum ) * apDays * apTip ) + ( apMerch * apMerchDiscount ) - (
 			apWonderlandCost ) - ( apNum * apUpgrade ),
 		ap = ( apNum * apUpgrade ) + ( apRegNum * ( ticket + apRegUpgrade ) * apDays ) +
 		( apFood * ( 1 - apFoodDiscount ) * ( apNum + apRegNum ) * apDays * ( 1 +
@@ -249,40 +250,32 @@ calculate = function() {
 			regDays ) + ( regFood * ( 1 - regFoodDiscount ) * regNum * regDays * (
 			1 + regTip ) ) + ( regMerch * ( 1 - regMerchDiscount ) ),
 		// Disney Vacation Club Rental
+		dvcapmargin = round( apmargin, 2 ),
 		// Animal Kingdom Lodge (DVC) Calculations
-		akldvcapmargin = round( ( akldvchotel * apNights * apRooms ) + apmargin, 2 ),
 		akldvcap = round( ( akldvchotel * apNights * apRooms ) + ap, 2 ),
 		akldvctyp = round( ( akldvchotel * regNights * regRooms ) + typ, 2 ),
 		// Bay Lake Tower (DVC) Calculations
-		bltdvcapmargin = round( ( bltdvchotel * apNights * apRooms ) + apmargin, 2 ),
 		bltdvcap = round( ( bltdvchotel * apNights * apRooms ) + ap, 2 ),
 		bltdvctyp = round( ( bltdvchotel * regNights * regRooms ) + typ, 2 ),
 		// Beach Club (DVC) Calculations
-		bcdvcapmargin = round( ( bcdvchotel * apNights * apRooms ) + apmargin, 2 ),
 		bcdvcap = round( ( bcdvchotel * apNights * apRooms ) + ap, 2 ),
 		bcdvctyp = round( ( bcdvchotel * regNights * regRooms ) + typ, 2 ),
 		// BoardWalk Inn (DVC) Calculations
-		bwdvcapmargin = round( ( bwdvchotel * apNights * apRooms ) + apmargin, 2 ),
 		bwdvcap = round( ( bwdvchotel * apNights * apRooms ) + ap, 2 ),
 		bwdvctyp = round( ( bwdvchotel * regNights * regRooms ) + typ, 2 ),
 		// Grand Floridan (DVC) Calculations
-		gfdvcapmargin = round( ( gfdvchotel * apNights * apRooms ) + apmargin, 2 ),
 		gfdvcap = round( ( gfdvchotel * apNights * apRooms ) + ap, 2 ),
 		gfdvctyp = round( ( gfdvchotel * regNights * regRooms ) + typ, 2 ),
 		// Old Key West (DVC) Calculations
-		okwdvcapmargin = round( ( okwdvchotel * apNights * apRooms ) + apmargin, 2 ),
 		okwdvcap = round( ( okwdvchotel * apNights * apRooms ) + ap, 2 ),
 		okwdvctyp = round( ( okwdvchotel * regNights * regRooms ) + typ, 2 ),
 		// Polynesian Village (DVC) Calculations
-		pvdvcapmargin = round( ( pvdvchotel * apNights * apRooms ) + apmargin, 2 ),
 		pvdvcap = round( ( pvdvchotel * apNights * apRooms ) + ap, 2 ),
 		pvdvctyp = round( ( pvdvchotel * regNights * regRooms ) + typ, 2 ),
 		// Saratoga Springs (DVC) Calculations
-		ssdvcapmargin = round( ( ssdvchotel * apNights * apRooms ) + apmargin, 2 ),
 		ssdvcap = round( ( ssdvchotel * apNights * apRooms ) + ap, 2 ),
 		ssdvctyp = round( ( ssdvchotel * regNights * regRooms ) + typ, 2 ),
 		// Wilderness Lodge (DVC) Calculations
-		wldvcapmargin = round( ( wldvchotel * apNights * apRooms ) + apmargin, 2 ),
 		wldvcap = round( ( wldvchotel * apNights * apRooms ) + ap, 2 ),
 		wldvctyp = round( ( wldvchotel * regNights * regRooms ) + typ, 2 ),
 		// Delux Hotels
@@ -407,23 +400,23 @@ calculate = function() {
 		customtyp = round( ( customhotel * regNights * regRooms ) + typ, 2 );
 	// Display Calculations
 	var results = [
-		[ "Animal Kingdom Lodge (DVC)", akldvcapmargin, akldvcap,
+		[ "Animal Kingdom Lodge (DVC)", dvcapmargin, akldvcap,
 			round( akldvctyp - akldvcap, 2 ), akldvctyp ],
-		[ "Bay Lake Tower (DVC)", bltdvcapmargin, bltdvcap, round(
+		[ "Bay Lake Tower (DVC)", dvcapmargin, bltdvcap, round(
 			bltdvctyp - bltdvcap, 2 ), bltdvctyp ],
-		[ "Beach Club (DVC)", bcdvcapmargin, bcdvcap, round(
+		[ "Beach Club (DVC)", dvcapmargin, bcdvcap, round(
 				bcdvctyp - bcdvcap, 2 ), bcdvctyp ],
-		[ "BoardWalk Inn (DVC)", bwdvcapmargin, bwdvcap, round(
+		[ "BoardWalk Inn (DVC)", dvcapmargin, bwdvcap, round(
 				bwdvctyp - bwdvcap, 2 ), bwdvctyp ],
-		[ "Grand Floridian (DVC)", gfdvcapmargin, gfdvcap, round(
+		[ "Grand Floridian (DVC)", dvcapmargin, gfdvcap, round(
 			gfdvctyp - gfdvcap, 2 ), gfdvctyp ],
-		[ "Old Key West (DVC)", okwdvcapmargin, okwdvcap, round(
+		[ "Old Key West (DVC)", dvcapmargin, okwdvcap, round(
 			okwdvctyp - okwdvcap, 2 ), okwdvctyp ],
-		[ "Polynesian Village (DVC)", pvdvcapmargin, pvdvcap, round(
+		[ "Polynesian Village (DVC)", dvcapmargin, pvdvcap, round(
 			pvdvctyp - pvdvcap, 2 ), pvdvctyp ],
-		[ "Saratoga Springs (DVC)", ssdvcapmargin, ssdvcap, round(
+		[ "Saratoga Springs (DVC)", dvcapmargin, ssdvcap, round(
 			ssdvctyp - ssdvcap, 2 ), ssdvctyp ],
-		[ "Wilderness Lodge (DVC)", wldvcapmargin, wldvcap, round(
+		[ "Wilderness Lodge (DVC)", dvcapmargin, wldvcap, round(
 			wldvctyp - wldvcap, 2 ), wldvctyp ],
 		[ "Animal Kingdom Lodge", aklapmargin, aklap, round( akltyp -
 				aklap, 2 ),	akltyp ],
@@ -490,10 +483,10 @@ calculate = function() {
 		var cells = tbody.getElementsByTagName('td');
 
 		for (var i=0, len=cells.length; i<len; i++){
-		  if (parseInt(cells[i].innerHTML) > 0 && cells[i].classList.contains('compare')){
+		  if (Number(cells[i].innerHTML) > 0 && cells[i].classList.contains('compare')){
 		      cells[i].className = 'text-success';
 		  }
-		  else if (parseInt(cells[i].innerHTML) < 0){
+		  else if (Number(cells[i].innerHTML) < 0 && cells[i].classList.contains('compare')){
 		      cells[i].className = 'text-danger';
 		  }
 		}
