@@ -239,10 +239,10 @@ calculate = function() {
 		apTip = apTip;
 	};
 	// Base Calculations
-	var apmargin = ( photopass * apTrips ) + ( apFood * apFoodDiscount * ( apNum +
-			apRegNum ) * apDays * ( 1 - apTip ) ) + ( apFood * apFoodDiscount * ( apNum +
-					apRegNum ) * apDays * apTip ) + ( apMerch * apMerchDiscount ) - (
-			apWonderlandCost ) - ( apNum * apUpgrade ),
+	var apmargin = (apNum * apDays * hopper) + ( photopass * apTrips ) +
+			( apFood * apFoodDiscount * ( apNum + apRegNum ) * apDays * ( 1 - apTip ) )
+			+ ( apFood * apFoodDiscount * ( apNum +	apRegNum ) * apDays * apTip ) +
+			( apMerch * apMerchDiscount ) - ( apWonderlandCost ) - ( apNum * apUpgrade ),
 		ap = ( apNum * apUpgrade ) + ( apRegNum * ( ticket + apRegUpgrade ) * apDays ) +
 		( apFood * ( 1 - apFoodDiscount ) * ( apNum + apRegNum ) * apDays * ( 1 +
 			apTip ) ) + ( apMerch * ( 1 - apMerchDiscount ) ),
