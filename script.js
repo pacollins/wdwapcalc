@@ -23,7 +23,7 @@ $( document )
 			} );
 	} );
 // Show License Modal
-// Source: Bootstrap
+// Source: Bootstrapa
 $( '#license' )
 	.on( 'shown.bs.modal', function() {
 		$( '#license' )
@@ -56,16 +56,16 @@ var pp = 952.11,
 	// Hotels
 	// Disney Vacation Club Rental
 	point = 17,
-	akldvchotel = eval(8*point),
-	bltdvchotel = eval(14*point),
-	bcdvchotel = eval(15*point),
-	bwdvchotel = eval(10*point),
-	gfdvchotel = eval(17*point),
-	okwdvchotel = eval(10*point),
-	pvdvchotel = eval(16*point),
-	rdvchotel = eval(12*point),
-	ssdvchotel = eval(11*point),
-	wldvchotel = eval(15*point),
+	akldvchotel = 8*point,
+	bltdvchotel = 14*point,
+	bcdvchotel = 15*point,
+	bwdvchotel = 10*point,
+	gfdvchotel = 17*point,
+	okwdvchotel = 10*point,
+	pvdvchotel = 16*point,
+	rdvchotel = 12*point,
+	ssdvchotel = 11*point,
+	wldvchotel = 15*point,
 	// Deluxe Hotels
 	aklhotel = 389,
 	bchotel = 456,
@@ -163,6 +163,33 @@ $( '#charthotels' )
 		searching: false
 	} );
 	$('th').addClass('table-toggle btn-outline-dark');
+// Copy Data
+copydata = function() {
+		// Typical Trip Variables
+		regNum = Number($("#reg_num").val())-1,
+		regAP = 1,
+		regUpgrade = Number($("#reg_upgrade").val()),
+		regDays = Number($("#reg_days").val()),
+		regFood = Number($("#reg_food").val()),
+		regTrips = Number($("#reg_trips").val()),
+		regNights = Number($("#reg_nights").val()),
+		regRooms = Number($("#reg_rooms").val()),
+		regRoomsPeople = Number($("#reg_rooms_people").val()),
+		regMerch = Number($("#reg_merch").val()),
+		regWonderland = Number($("#reg_wonderland").val());
+		// Copy to AP
+		$("#ap_num").val(regAP);
+		$("#ap_reg_num").val(regNum);
+		$("#ap_reg_upgrade").val(regUpgrade);
+		$("#ap_days").val(regDays);
+		$("#ap_food").val(regFood);
+		$("#ap_trips").val(regTrips);
+		$("#ap_nights").val(regNights);
+		$("#ap_rooms").val(regRooms);
+		$("#ap_rooms_people").val(regRoomsPeople);
+		$("#ap_merch").val(regMerch);
+		$("#ap_wonderland").val(regWonderland);
+};
 // Calculate AP and Create DataTable
 calculate = function() {
 	var customhotel = Number(document.getElementById( "custom_hotel" ).value),
@@ -200,14 +227,14 @@ calculate = function() {
 		regPhotopass = photopass;
 	} else {
 		regPhotopass = 0;
-	};
+	}
 	if ( regVisa > 0 ) {
 		regFoodDiscount = visaFoodDiscount;
 		regMerchDiscount = visaMerchDiscount;
 	} else {
 		regFoodDiscount = 0;
 		regMerchDiscount = 0;
-	};
+	}
 	if ( regWonderland > 0 ) {
 		regFoodDiscount = wonderlandDiscount;
 		regWonderlandCost = regWonderlandCost;
@@ -216,22 +243,22 @@ calculate = function() {
 		regFoodDiscount = regFoodDiscount;
 		regWonderlandCost = 0;
 		regTip = regTip;
-	};
+	}
 	if ( regUpgrade > 0 ) {
 		regUpgrade = hopper;
 	} else {
 		regUpgrade = 0;
-	};
+	}
 	if ( apUpgrade > 0 ) {
 		apUpgrade = ppp;
 	} else {
 		apUpgrade = pp;
-	};
+	}
 	if ( apRegUpgrade > 0 ) {
 		apRegUpgrade = hopper;
 	} else {
 		apRegUpgrade = 0;
-	};
+	}
 	if ( apWonderland > 0 ) {
 		apFoodDiscount = wonderlandDiscount;
 		apWonderlandCost = apWonderlandCost;
@@ -240,11 +267,11 @@ calculate = function() {
 		apFoodDiscount = apFoodDiscount;
 		apWonderlandCost = 0;
 		apTip = apTip;
-	};
+	}
 	// Base Calculations
 	var apmargin = (apNum * apDays * hopper) + ( photopass * apTrips ) +
-			( apFood * apFoodDiscount * ( apNum + apRegNum ) * apDays * ( 1 - apTip ) )
-			+ ( apFood * apFoodDiscount * ( apNum +	apRegNum ) * apDays * apTip ) +
+			( apFood * apFoodDiscount * ( apNum + apRegNum ) * apDays * ( 1 - apTip ) ) +
+			( apFood * apFoodDiscount * ( apNum +	apRegNum ) * apDays * apTip ) +
 			( apMerch * apMerchDiscount ) - ( apWonderlandCost ) - ( apNum * apUpgrade ),
 		ap = ( apNum * apUpgrade ) + ( apRegNum * ( ticket + apRegUpgrade ) * apDays ) +
 		( apFood * ( 1 - apFoodDiscount ) * ( apNum + apRegNum ) * apDays * ( 1 +
