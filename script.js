@@ -22,6 +22,7 @@ $( document )
 				} // End if
 			} );
 	} );
+
 // Show License Modal
 // Source: Bootstrapa
 $( '#license' )
@@ -29,10 +30,7 @@ $( '#license' )
 		$( '#license' )
 			.trigger( 'focus' );
 	} );
-// Round Values
-function round( value, decimals ) {
-	return Number( value.toFixed( decimals ));
-}
+
 // Main JS for Calculator and DataTables
 // Constants
 var pp = 952.11,
@@ -89,55 +87,58 @@ var pp = 952.11,
 	fwhotel = 377,
 	// Off-Site or Custom Price
 	offhotel = 100,
-	// Constants Array
+
+	// Constants Array for Table
 	constants = [
-		[ "Platinum Pass +", "$" + round( ppp, 2 ) ],
-		[ "Plainum Pass", "$" + round( pp, 2 ) ],
-		[ "Ticket/Day", "$" + round( ticket, 2 ) ],
-		[ "Hopper/Day", "$" + round( hopper, 2 ) ],
-		[ "Photopass", "$" + round( photopass, 2 ) ],
-		[ "AP Food Discount", round( apFoodDiscount * 100, 0 ) + "%" ],
-		[ "AP Merch Discount", round( apMerchDiscount * 100, 0 ) + "%" ],
-		[ "VISA Food Discount", round( visaFoodDiscount * 100, 0 ) + "%" ],
-		[ "VISA Merch Discount", round( visaMerchDiscount * 100, 0 ) + "%" ],
-    [ "Tier 1 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ],
-		[ "Tier 2 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ],
-		[ "Tier 3 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ],
-		[ "Tier 4 Hotel Discount", round( t1HotelDiscount * 100, 0 ) + "%" ]
+		[ "Platinum Pass +", "$" + (ppp).toFixed(2) ],
+		[ "Plainum Pass", "$" + (pp).toFixed(2) ],
+		[ "Ticket/Day", "$" + (ticket).toFixed(2) ],
+		[ "Hopper/Day", "$" + (hopper).toFixed(2) ],
+		[ "Photopass", "$" + (photopass).toFixed(2) ],
+		[ "AP Food Discount", (apFoodDiscount * 100).toFixed(0) + "%" ],
+		[ "AP Merch Discount", (apMerchDiscount * 100).toFixed(0) + "%" ],
+		[ "VISA Food Discount", (visaFoodDiscount * 100).toFixed(0) + "%" ],
+		[ "VISA Merch Discount", (visaMerchDiscount * 100).toFixed(0) + "%" ],
+    [ "Tier 1 Hotel Discount", (t1HotelDiscount * 100).toFixed(0) + "%" ],
+		[ "Tier 2 Hotel Discount", (t1HotelDiscount * 100).toFixed(0) + "%" ],
+		[ "Tier 3 Hotel Discount", (t1HotelDiscount * 100).toFixed(0) + "%" ],
+		[ "Tier 4 Hotel Discount", (t1HotelDiscount * 100).toFixed(0) + "%" ]
 	],
-	// Hotels Array
+
+	// Hotels Array for Table
 	hotels = [
-		[ "Animal Kingdom Lodge (DVC)", "$" + round( akldvchotel, 2 ) ],
-		[ "Bay Lake Tower (DVC)", "$" + round( bltdvchotel, 2 ) ],
-		[ "Beach Club (DVC)", "$" + round( bcdvchotel, 2 ) ],
-		[ "BoardWalk Inn (DVC)", "$" + round( bwdvchotel, 2 ) ],
-		[ "Grand Floridian (DVC)", "$" + round( gfdvchotel, 2 ) ],
-		[ "Old Key West (DVC)", "$" + round( okwdvchotel, 2 ) ],
-		[ "Grand Floridian", "$" + round( gfhotel, 2 ) ],
-		[ "Polynesian Village (DVC)", "$" + round( pvdvchotel, 2 ) ],
-		[ "Riviera (DVC)", "$" + round( rdvchotel, 2 ) ],
-		[ "Saratoga Springs (DVC)", "$" + round( ssdvchotel, 2 ) ],
-		[ "Wilderness Lodge (DVC)", "$" + round( wldvchotel, 2 ) ],
-		[ "Animal Kingdom Lodge", "$" + round( aklhotel, 2 ) ],
-		[ "Beach Club", "$" + round( bchotel, 2 ) ],
-		[ "BoardWalk Inn", "$" + round( bwhotel, 2 ) ],
-		[ "Contemporary", "$" + round( conhotel, 2 ) ],
-		[ "Grand Floridian", "$" + round( gfhotel, 2 ) ],
-		[ "Polynesian Village", "$" + round( pvhotel, 2 ) ],
-		[ "Wilderness Lodge", "$" + round( wlhotel, 2 ) ],
-		[ "Yacht Club", "$" + round( ychotel, 2 ) ],
-		[ "Caribbean Beach", "$" + round( cbhotel, 2 ) ],
-		[ "Coronado Springs", "$" + round( cshotel, 2 ) ],
-		[ "Port Orleans", "$" + round( pohotel, 2 ) ],
-		[ "All-Star Movies", "$" + round( amohotel, 2 ) ],
-		[ "All-Star Music", "$" + round( amuhotel, 2 ) ],
-		[ "All-Star Sports", "$" + round( asphotel, 2 ) ],
-		[ "Art of Animation", "$" + round( aoahotel, 2 ) ],
-		[ "Art of Animation - Suites", "$" + round( aoashotel, 2 ) ],
-		[ "Pop Century", "$" + round( pchotel, 2 ) ],
-		[ "Fort Wilderness", "$" + round( fwhotel, 2 ) ],
-		[ "Off-Site", "$" + round( offhotel, 2 ) ]
+		[ "Animal Kingdom Lodge (DVC)", "$" + (akldvchotel).toFixed(2) ],
+		[ "Bay Lake Tower (DVC)", "$" + (bltdvchotel).toFixed(2) ],
+		[ "Beach Club (DVC)", "$" + (bcdvchotel).toFixed(2) ],
+		[ "BoardWalk Inn (DVC)", "$" + (bwdvchotel).toFixed(2) ],
+		[ "Grand Floridian (DVC)", "$" + (gfdvchotel).toFixed(2) ],
+		[ "Old Key West (DVC)", "$" + (okwdvchotel).toFixed(2) ],
+		[ "Grand Floridian", "$" + (gfhotel).toFixed(2) ],
+		[ "Polynesian Village (DVC)", "$" + (pvdvchotel).toFixed(2) ],
+		[ "Riviera (DVC)", "$" + (rdvchotel).toFixed(2) ],
+		[ "Saratoga Springs (DVC)", "$" + (ssdvchotel).toFixed(2) ],
+		[ "Wilderness Lodge (DVC)", "$" + (wldvchotel).toFixed(2) ],
+		[ "Animal Kingdom Lodge", "$" + (aklhotel).toFixed(2) ],
+		[ "Beach Club", "$" + (bchotel).toFixed(2) ],
+		[ "BoardWalk Inn", "$" + (bwhotel).toFixed(2) ],
+		[ "Contemporary", "$" + (conhotel).toFixed(2) ],
+		[ "Grand Floridian", "$" + (gfhotel).toFixed(2) ],
+		[ "Polynesian Village", "$" + (pvhotel).toFixed(2) ],
+		[ "Wilderness Lodge", "$" + (wlhotel).toFixed(2) ],
+		[ "Yacht Club", "$" + (ychotel).toFixed(2) ],
+		[ "Caribbean Beach", "$" + (cbhotel).toFixed(2) ],
+		[ "Coronado Springs", "$" + (cshotel).toFixed(2) ],
+		[ "Port Orleans", "$" + (pohotel).toFixed(2) ],
+		[ "All-Star Movies", "$" + (amohotel).toFixed(2) ],
+		[ "All-Star Music", "$" + (amuhotel).toFixed(2) ],
+		[ "All-Star Sports", "$" + (asphotel).toFixed(2) ],
+		[ "Art of Animation", "$" + (aoahotel).toFixed(2) ],
+		[ "Art of Animation - Suites", "$" + (aoashotel).toFixed(2) ],
+		[ "Pop Century", "$" + (pchotel).toFixed(2) ],
+		[ "Fort Wilderness", "$" + (fwhotel).toFixed(2) ],
+		[ "Off-Site", "$" + (offhotel).toFixed(2) ]
 	];
+
 // Create Constants DataTable
 $( '#chartconstants' )
 	.DataTable( {
@@ -150,6 +151,7 @@ $( '#chartconstants' )
 		info: false,
 		searching: false,
 	} );
+
 // Create Hotels DataTable
 $( '#charthotels' )
 	.DataTable( {
@@ -163,10 +165,11 @@ $( '#charthotels' )
 		searching: false
 	} );
 	$('th').addClass('table-toggle btn-outline-dark');
-// Copy Data
+
+// Copy Data from Typical to Annual Pass
 copydata = function() {
 		// Typical Trip Variables
-		regNum = Number($("#reg_num").val())-1,
+		var regNum = Number($("#reg_num").val())-1,
 		regAP = 1,
 		regUpgrade = Number($("#reg_upgrade").val()),
 		regDays = Number($("#reg_days").val()),
@@ -192,35 +195,35 @@ copydata = function() {
 };
 // Calculate AP and Create DataTable
 calculate = function() {
-	var customhotel = Number(document.getElementById( "custom_hotel" ).value),
+	var customhotel = Number($("#custom_hotel").val()),
 		// Typical Trip Variables
-		regVisa = Number(document.getElementById( "reg_visa" ).value),
+		regVisa = Number($("#reg_visa").val()),
 		regFoodDiscount = 0,
 		regMerchDiscount = 0,
-		regPhotopass = Number(document.getElementById( "reg_photopass" ).value),
-		regNum = Number(document.getElementById( "reg_num" ).value),
-		regUpgrade = Number(document.getElementById( "reg_upgrade" ).value),
-		regDays = Number(document.getElementById( "reg_days" ).value),
-		regFood = Number(document.getElementById( "reg_food" ).value),
-		regTrips = Number(document.getElementById( "reg_trips" ).value),
-		regNights = Number(document.getElementById( "reg_nights" ).value),
-		regRooms = Number(document.getElementById( "reg_rooms" ).value),
-		regRoomsPeople = Number(document.getElementById( "reg_rooms_people" ).value),
-		regMerch = Number(document.getElementById( "reg_merch" ).value),
-		regWonderland = Number(document.getElementById( "reg_wonderland" ).value),
+		regPhotopass = Number($("#reg_photopass").val()),
+		regNum = Number($("#reg_num").val()),
+		regUpgrade = Number($("#reg_upgrade").val()),
+		regDays = Number($("#reg_days").val()),
+		regFood = Number($("#reg_food").val()),
+		regTrips = Number($("#reg_trips").val()),
+		regNights = Number($("#reg_nights").val()),
+		regRooms = Number($("#reg_rooms").val()),
+		regRoomsPeople = Number($("#reg_rooms_people").val()),
+		regMerch = Number($("#reg_merch").val()),
+		regWonderland = Number($("#reg_wonderland").val()),
 		// Annual Pass Trip Variables
-		apNum = Number(document.getElementById( "ap_num" ).value),
-		apUpgrade = Number(document.getElementById( "ap_upgrade" ).value),
-		apRegNum = Number(document.getElementById( "ap_reg_num" ).value),
-		apRegUpgrade = Number(document.getElementById( "ap_reg_upgrade" ).value),
-		apDays = Number(document.getElementById( "ap_days" ).value),
-		apFood = Number(document.getElementById( "ap_food" ).value),
-		apTrips = Number(document.getElementById( "ap_trips" ).value),
-		apNights = Number(document.getElementById( "ap_nights" ).value),
-		apRooms = Number(document.getElementById( "ap_rooms" ).value),
-		apRoomsPeople = Number(document.getElementById( "ap_rooms_people" ).value),
-		apMerch = Number(document.getElementById( "ap_merch" ).value),
-		apWonderland = Number(document.getElementById( "ap_wonderland" ).value);
+		apNum = Number($("#ap_num").val()),
+		apUpgrade = Number($("#ap_upgrade").val()),
+		apRegNum = Number($("#ap_reg_num").val()),
+		apRegUpgrade = Number($("#ap_reg_upgrade").val()),
+		apDays = Number($("#ap_days").val()),
+		apFood = Number($("#ap_food").val()),
+		apTrips = Number($("#ap_trips").val()),
+		apNights = Number($("#ap_nights").val()),
+		apRooms = Number($("#ap_rooms").val()),
+		apRoomsPeople = Number($("#ap_rooms_people").val()),
+		apMerch = Number($("#ap_merch").val()),
+		apWonderland = Number($("#ap_wonderland").val());
 	// Optional Variables
 	// Calculations
 	if ( regPhotopass > 0 ) {
@@ -268,232 +271,74 @@ calculate = function() {
 		apWonderlandCost = 0;
 		apTip = apTip;
 	}
+	var resorts = [
+	  [ "Animal Kingdom Lodge (DVC)", akldvchotel, 0],
+	  [ "Bay Lake Tower (DVC)", bltdvchotel, 0],
+	  [ "Beach Club (DVC)", bcdvchotel, 0],
+	  [ "BoardWalk Inn (DVC)", bwdvchotel, 0],
+	  [ "Grand Floridian (DVC)", gfdvchotel, 0],
+	  [ "Old Key West (DVC)", okwdvchotel, 0],
+	  [ "Grand Floridian", gfhotel, 0],
+	  [ "Polynesian Village (DVC)", pvdvchotel, 0],
+	  [ "Riviera (DVC)", rdvchotel, 0],
+	  [ "Saratoga Springs (DVC)", ssdvchotel, 0],
+	  [ "Wilderness Lodge (DVC)", wldvchotel, 0],
+	  [ "Animal Kingdom Lodge", aklhotel, t1HotelDiscount],
+	  [ "Beach Club", bchotel, 	t3HotelDiscount],
+	  [ "BoardWalk Inn", bwhotel, t1HotelDiscount],
+	  [ "Contemporary", conhotel, t3HotelDiscount],
+	  [ "Grand Floridian", gfhotel, t2HotelDiscount],
+	  [ "Polynesian Village", pvhotel, t3HotelDiscount],
+	  [ "Wilderness Lodge", wlhotel, t1HotelDiscount],
+	  [ "Yacht Club", ychotel, t1HotelDiscount],
+	  [ "Caribbean Beach", cbhotel, t3HotelDiscount],
+	  [ "Coronado Springs", cshotel, t3HotelDiscount],
+	  [ "Port Orleans", pohotel,	t3HotelDiscount],
+	  [ "All-Star Movies", amohotel, t4HotelDiscount],
+	  [ "All-Star Music", amuhotel, t4HotelDiscount],
+	  [ "All-Star Sports", asphotel, t4HotelDiscount],
+	  [ "Art of Animation", aoahotel, t4HotelDiscount],
+	  [ "Art of Animation - Suites", aoashotel, t4HotelDiscount],
+	  [ "Pop Century", pchotel, t4HotelDiscount],
+	  [ "Fort Wilderness", fwhotel, t2HotelDiscount],
+	  [ "Off-Site", offhotel, 0],
+	  [ "Custom", customhotel, 0]
+	];
+
+	var results = [];
+  var resortapmargin, resortap, resorttyp;
+
 	// Base Calculations
 	var apmargin = (apNum * apDays * hopper) + ( photopass * apTrips ) +
-			( apFood * apFoodDiscount * ( apNum + apRegNum ) * apDays * ( 1 - apTip ) ) +
-			( apFood * apFoodDiscount * ( apNum +	apRegNum ) * apDays * apTip ) +
-			( apMerch * apMerchDiscount ) - ( apWonderlandCost ) - ( apNum * apUpgrade ),
-		ap = ( apNum * apUpgrade ) + ( apRegNum * ( ticket + apRegUpgrade ) * apDays ) +
-		( apFood * ( 1 - apFoodDiscount ) * ( apNum + apRegNum ) * apDays * ( 1 +
-			apTip ) ) + ( apMerch * ( 1 - apMerchDiscount ) ),
-		typ = ( photopass * regTrips ) + ( regNum * ( ticket + regUpgrade ) *
-			regDays ) + ( regFood * ( 1 - regFoodDiscount ) * regNum * regDays * (
-			1 + regTip ) ) + ( regMerch * ( 1 - regMerchDiscount ) ),
-		// Disney Vacation Club Rental
-		dvcapmargin = round( apmargin, 2 ),
-		// Animal Kingdom Lodge (DVC) Calculations
-		akldvcap = round( ( akldvchotel * apNights * apRooms ) + ap, 2 ),
-		akldvctyp = round( ( akldvchotel * regNights * regRooms ) + typ, 2 ),
-		// Bay Lake Tower (DVC) Calculations
-		bltdvcap = round( ( bltdvchotel * apNights * apRooms ) + ap, 2 ),
-		bltdvctyp = round( ( bltdvchotel * regNights * regRooms ) + typ, 2 ),
-		// Beach Club (DVC) Calculations
-		bcdvcap = round( ( bcdvchotel * apNights * apRooms ) + ap, 2 ),
-		bcdvctyp = round( ( bcdvchotel * regNights * regRooms ) + typ, 2 ),
-		// BoardWalk Inn (DVC) Calculations
-		bwdvcap = round( ( bwdvchotel * apNights * apRooms ) + ap, 2 ),
-		bwdvctyp = round( ( bwdvchotel * regNights * regRooms ) + typ, 2 ),
-		// Grand Floridan (DVC) Calculations
-		gfdvcap = round( ( gfdvchotel * apNights * apRooms ) + ap, 2 ),
-		gfdvctyp = round( ( gfdvchotel * regNights * regRooms ) + typ, 2 ),
-		// Old Key West (DVC) Calculations
-		okwdvcap = round( ( okwdvchotel * apNights * apRooms ) + ap, 2 ),
-		okwdvctyp = round( ( okwdvchotel * regNights * regRooms ) + typ, 2 ),
-		// Polynesian Village (DVC) Calculations
-		pvdvcap = round( ( pvdvchotel * apNights * apRooms ) + ap, 2 ),
-		pvdvctyp = round( ( pvdvchotel * regNights * regRooms ) + typ, 2 ),
-		// Riviera (DVC) Calculations
-		rdvcap = round( ( rdvchotel * apNights * apRooms ) + ap, 2 ),
-		rdvctyp = round( ( rdvchotel * regNights * regRooms ) + typ, 2 ),
-		// Saratoga Springs (DVC) Calculations
-		ssdvcap = round( ( ssdvchotel * apNights * apRooms ) + ap, 2 ),
-		ssdvctyp = round( ( ssdvchotel * regNights * regRooms ) + typ, 2 ),
-		// Wilderness Lodge (DVC) Calculations
-		wldvcap = round( ( wldvchotel * apNights * apRooms ) + ap, 2 ),
-		wldvctyp = round( ( wldvchotel * regNights * regRooms ) + typ, 2 ),
-		// Delux Hotels
-		// Animal Kingdom Lodge Calculations
-		aklapmargin = round( ( aklhotel * t1HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		aklap = round( ( aklhotel * ( 1 - t1HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		akltyp = round( ( aklhotel * regNights * regRooms ) + typ, 2 ),
-		// Beach Club Calculations
-		bcapmargin = round( ( bchotel * t3HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		bcap = round( ( bchotel * ( 1 - t3HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		bctyp = round( ( bchotel * regNights * regRooms ) + typ, 2 ),
-		// BoardWalk Inn Calculations
-		bwapmargin = round( ( bwhotel * t1HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		bwap = round( ( bwhotel * ( 1 - t1HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		bwtyp = round( ( bwhotel * regNights * regRooms ) + typ, 2 ),
-		// Contemporary Calculations
-		conapmargin = round( ( conhotel * t3HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		conap = round( ( conhotel * ( 1 - t3HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		contyp = round( ( conhotel * regNights * regRooms ) + typ, 2 ),
-		// Grand Floridan Calculations
-		gfapmargin = round( ( gfhotel * t2HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		gfap = round( ( gfhotel * ( 1 - t2HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		gftyp = round( ( gfhotel * regNights * regRooms ) + typ, 2 ),
-		// Polynesian Village Calculations
-		pvapmargin = round( ( pvhotel * t3HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		pvap = round( ( pvhotel * ( 1 - t3HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		pvtyp = round( ( pvhotel * regNights * regRooms ) + typ, 2 ),
-		// Wilderness Lodge Calculations
-		wlapmargin = round( ( wlhotel * t1HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		wlap = round( ( wlhotel * ( 1 - t1HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		wltyp = round( ( wlhotel * regNights * regRooms ) + typ, 2 ),
-		// Yacht Club Calculations
-		ycapmargin = round( ( ychotel * t1HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		ycap = round( ( ychotel * ( 1 - t1HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		yctyp = round( ( ychotel * regNights * regRooms ) + typ, 2 ),
-		// Moderate Hotels
-		// Caribbean Beach Calculations
-		cbapmargin = round( ( cbhotel * t3HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		cbap = round( ( cbhotel * ( 1 - t3HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		cbtyp = round( ( cbhotel * regNights * regRooms ) + typ, 2 ),
-		// Coronado Springs Calculations
-		csapmargin = round( ( cshotel * t3HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		csap = round( ( cshotel * ( 1 - t3HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		cstyp = round( ( cshotel * regNights * regRooms ) + typ, 2 ),
-		// Port Orleans Calculations
-		poapmargin = round( ( pohotel * t3HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		poap = round( ( pohotel * ( 1 - t3HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		potyp = round( ( pohotel * regNights * regRooms ) + typ, 2 ),
-		// Value Resorts
-		// All-Star Movies Calculations
-		amoapmargin = round( ( amohotel * t4HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		amoap = round( ( amohotel * ( 1 - t4HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		amotyp = round( ( amohotel * regNights * regRooms ) + typ, 2 ),
-		// All-Star Music Calculations
-		amuapmargin = round( ( amuhotel * t4HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		amuap = round( ( amuhotel * ( 1 - t4HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		amutyp = round( ( amuhotel * regNights * regRooms ) + typ, 2 ),
-		// All-Star Sports Calculations
-		aspapmargin = round( ( asphotel * t4HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		aspap = round( ( asphotel * ( 1 - t4HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		asptyp = round( ( asphotel * regNights * regRooms ) + typ, 2 ),
-		// Art of Animation Calculations
-		aoaapmargin = round( ( aoahotel * t4HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		aoaap = round( ( aoahotel * ( 1 - t4HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		aoatyp = round( ( aoahotel * regNights * regRooms ) + typ, 2 ),
-		// Art of Animation - Suites Calculations
-		aoasapmargin = round( ( aoashotel * t4HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		aoasap = round( ( aoashotel * ( 1 - t4HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		aoastyp = round( ( aoashotel * regNights * regRooms ) + typ, 2 ),
-		// Pop Century Calculations
-		pcapmargin = round( ( pchotel * t4HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		pcap = round( ( pchotel * ( 1 - t4HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		pctyp = round( ( pchotel * regNights * regRooms ) + typ, 2 ),
-		// Fort Wilderness Calculations
-		fwapmargin = round( ( fwhotel * t2HotelDiscount * apNights * apRooms ) +
-			apmargin, 2 ),
-		fwap = round( ( fwhotel * ( 1 - t2HotelDiscount ) * apNights * apRooms ) +
-			ap, 2 ),
-		fwtyp = round( ( fwhotel * regNights * regRooms ) + typ, 2 ),
-		// Off-Site or Custom Price
-		// Off-Site Calculations
-		offapmargin = round( ( offhotel * apNights * apRooms ) + apmargin, 2 ),
-		offap = round( ( offhotel * apNights * apRooms ) + ap, 2 ),
-		offtyp = round( ( offhotel * regNights * regRooms ) + typ, 2 ),
-		// Custom Calculations
-		customapmargin = round( apmargin, 2 ),
-		customap = round( ( customhotel * apNights * apRooms ) + ap, 2 ),
-		customtyp = round( ( customhotel * regNights * regRooms ) + typ, 2 );
+								( apFood * apFoodDiscount * ( apNum + apRegNum ) * apDays * ( 1 - apTip ) ) +
+								( apFood * apFoodDiscount * ( apNum +	apRegNum ) * apDays * apTip ) +
+								( apMerch * apMerchDiscount ) - ( apWonderlandCost ) - ( apNum * apUpgrade ),
+			ap = ( apNum * apUpgrade ) + ( apRegNum * ( ticket + apRegUpgrade ) * apDays ) +
+					( apFood * ( 1 - apFoodDiscount ) * ( apNum + apRegNum ) * apDays *
+					( 1 + apTip ) ) + ( apMerch * ( 1 - apMerchDiscount ) ),
+		typ = ( photopass * regTrips ) + ( regNum * ( ticket + regUpgrade ) * regDays ) +
+				( regFood * ( 1 - regFoodDiscount ) * regNum * regDays * ( 1 + regTip ) ) +
+				( regMerch * ( 1 - regMerchDiscount ) );
+
+	// Invidiual Calculations
+	$.each(resorts, function (i) {
+		// Without Room Discount
+	  if (resorts[i][2] === 0) {
+	    resortapmargin = apmargin;
+	    resortap = ( resorts[i][1] * apNights * apRooms ) + ap;
+	    resorttyp = ( resorts[i][1] * regNights * regRooms ) + typ;
+	    results.push([resorts[i][0], (resortapmargin).toFixed(2), (resortap).toFixed(2), (resorttyp-resortap).toFixed(2), (resorttyp).toFixed(2)]);
+	  }
+		// With Room Discount
+	  else {
+	    resortapmargin = ( resorts[i][1] * resorts[i][2] * apNights * apRooms ) + apmargin;
+	    resortap = ( resorts[i][1] * ( 1 - resorts[i][2] ) * apNights * apRooms ) + ap;
+	    resorttyp = ( resorts[i][1] * regNights * regRooms ) + typ;
+	    results.push([resorts[i][0], (resortapmargin).toFixed(2), (resortap).toFixed(2), (resorttyp-resortap).toFixed(2), (resorttyp).toFixed(2)]);
+	  }
+	});
+
 	// Display Calculations
-	var results = [
-		[ "Animal Kingdom Lodge (DVC)", dvcapmargin, akldvcap,
-			round( akldvctyp - akldvcap, 2 ), akldvctyp ],
-		[ "Bay Lake Tower (DVC)", dvcapmargin, bltdvcap, round(
-			bltdvctyp - bltdvcap, 2 ), bltdvctyp ],
-		[ "Beach Club (DVC)", dvcapmargin, bcdvcap, round(
-				bcdvctyp - bcdvcap, 2 ), bcdvctyp ],
-		[ "BoardWalk Inn (DVC)", dvcapmargin, bwdvcap, round(
-				bwdvctyp - bwdvcap, 2 ), bwdvctyp ],
-		[ "Grand Floridian (DVC)", dvcapmargin, gfdvcap, round(
-			gfdvctyp - gfdvcap, 2 ), gfdvctyp ],
-		[ "Old Key West (DVC)", dvcapmargin, okwdvcap, round(
-			okwdvctyp - okwdvcap, 2 ), okwdvctyp ],
-		[ "Polynesian Village (DVC)", dvcapmargin, pvdvcap, round(
-			pvdvctyp - pvdvcap, 2 ), pvdvctyp ],
-		[ "Riviera (DVC)", dvcapmargin, pvdvcap, round(
-			rdvctyp - rdvcap, 2 ), rdvctyp ],
-		[ "Saratoga Springs (DVC)", dvcapmargin, ssdvcap, round(
-			ssdvctyp - ssdvcap, 2 ), ssdvctyp ],
-		[ "Wilderness Lodge (DVC)", dvcapmargin, wldvcap, round(
-			wldvctyp - wldvcap, 2 ), wldvctyp ],
-		[ "Animal Kingdom Lodge", aklapmargin, aklap, round( akltyp -
-				aklap, 2 ),	akltyp ],
-		[ "Beach Club", bcapmargin, bcap, round( bctyp - bcap, 2 ),
-			bctyp ],
-		[ "BoardWalk Inn", bwapmargin, bwap, round( bwtyp - bwap, 2 ),
-			bwtyp ],
-		[ "Contemporary", conapmargin, conap, round( contyp - conap,
-			2 ), contyp ],
-		[ "Grand Floridian", gfapmargin, gfap, round( gftyp - gfap,
-			2 ), gftyp ],
-		[ "Polynesian Village", pvapmargin, pvap, round( pvtyp -
-			pvap, 2 ), pvtyp ],
-		[ "Wilderness Lodge", wlapmargin, wlap, round( wltyp - wlap,
-			2 ), wltyp ],
-		[ "Yacht Club", ycapmargin, ycap, round( yctyp - ycap, 2 ),
-			yctyp ],
-		[ "Caribbean Beach", cbapmargin, cbap, round( cbtyp - cbap,
-			2 ), cbtyp ],
-		[ "Coronado Springs", csapmargin, csap, round( cstyp - csap,
-			2 ), cstyp ],
-		[ "Port Orleans", poapmargin, poap, round( potyp - poap, 2 ),
-			potyp ],
-		[ "All-Star Movies", amoapmargin, amoap, round( amotyp -
-				amoap, 2 ),	amotyp ],
-		[ "All-Star Music", amuapmargin, amuap, round( amutyp -
-				amuap, 2 ),	amutyp ],
-		[ "All-Star Sports", aspapmargin, aspap, round( asptyp -
-				aspap, 2 ),	asptyp ],
-		[ "Art of Animation", aoaapmargin, aoaap, round( aoatyp -
-				aoaap, 2 ), aoatyp ],
-		[ "Art of Animation - Suites", aoasapmargin, aoasap, round(
-			aoastyp - aoasap, 2 ), aoastyp ],
-		[ "Pop Century", pcapmargin, pcap, round( pctyp - pcap, 2 ),
-			pctyp ],
-		[ "Fort Wilderness", fwapmargin, fwap, round( fwtyp - fwap,
-			2 ), fwtyp ],
-		[ "Off-Site", offapmargin, offap, round( offtyp - offap, 2 ),
-			offtyp ],
-		[ "Custom", customapmargin, customap, round( customtyp -
-			customap, 2 ), customtyp ]
-	];
 	$( '#chart' )
 		.DataTable( {
 			destroy: true,
@@ -512,6 +357,7 @@ calculate = function() {
 			searching: false,
 			responsive: true
 		} );
+
 		$('th').addClass('table-toggle btn-outline-dark');
 		var table = document.getElementById('chart');
 		var tbody = table.getElementsByTagName('tbody')[0];

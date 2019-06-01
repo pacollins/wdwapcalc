@@ -27,6 +27,10 @@ fieldset {
 	padding-bottom: 0;
 }
 
+.form-group {
+	margin: .5em 0;
+}
+
 /* Overwrite DataTables */
 
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
@@ -59,8 +63,21 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 
 /* Custom */
 
+.card-footer {
+	padding: 1em 10%;
+}
+
 .dtr-data:before{
 	content:'$';
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+	flex-direction: column;
+	justify-content: center;
+  align-items: center;
 }
 
 .table-toggle {
@@ -98,10 +115,4 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 	-webkit-animation: bump 2s infinite;
 	/* Safari 4.0 - 8.0 */
 	animation: bump 2s infinite;
-}
-
-@media (min-width: 1200px) {
-	#ap {
-		margin-left: 1em;
-	}
 }
