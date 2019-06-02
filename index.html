@@ -48,10 +48,13 @@
 						<form class="form">
 							<div class="card-body row">
 								<fieldset class="col-lg" id="reg">
-									<legend>Typical Trip</legend>
+									<legend>Regular Ticket Trip</legend>
+									<small class="form-text text-muted">Use this side of the form
+										if you are looking to compare what you might typically do with
+										what you could do with an Annual Pass.</small>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="reg_visa">Disney VISA?</label> <select class="form-control" id="reg_visa">
+											<label for="reg_visa" data-toggle="tooltip" title="Disney provides food and merchandise discounts when using this card.">Disney VISA?</label> <select class="form-control" id="reg_visa">
 												<option value="0">
 													No
 												</option>
@@ -72,7 +75,7 @@
 										</div>
 									</div>
 									<div class="form-row">
-										<div class="form-group col-md-8">
+										<div class="form-group col-md-6">
 											<label for="reg_num">Tickets</label> <input class="form-control" id="reg_num" min="1" type="number">
 										</div>
 										<div class="form-group col">
@@ -88,10 +91,10 @@
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="reg_days">Days/Year</label> <input class="form-control" id="reg_days" min="0" type="number">
+											<label for="reg_days">Park Days per Year</label> <input class="form-control" id="reg_days" min="0" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="reg_food">Food/Person/Day</label>
+											<label for="reg_food">Food per Person per Day</label>
 											<div class="input-group">
 												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="reg_food" min="0" step="0.01" type="number">
 											</div>
@@ -99,10 +102,10 @@
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="reg_trips">Trips/Year</label> <input class="form-control" id="reg_trips" min="0" type="number">
+											<label for="reg_trips" data-toggle="tooltip" title="Each trip would require a new PhotoPass.">Trips per Year</label> <input class="form-control" id="reg_trips" min="0" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="reg_nights">Nights/Year</label> <input class="form-control" id="reg_nights" min="0" type="number">
+											<label for="reg_nights">Nights per Year</label> <input class="form-control" id="reg_nights" min="0" type="number">
 										</div>
 									</div>
 									<div class="form-row">
@@ -110,12 +113,12 @@
 											<label for="reg_rooms">Rooms</label> <input class="form-control" id="reg_rooms" min="0" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="reg_rooms_people">People/Room</label> <input class="form-control" id="reg_rooms_people" min="1" type="number" disabled>
+											<label for="reg_rooms_people">People per Room</label> <input class="form-control" id="reg_rooms_people" min="1" type="number" disabled>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="reg_merch">Merchandise/Year</label>
+											<label for="reg_merch">Merchandise per Year</label>
 											<div class="input-group">
 												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="reg_merch" min="0" step="0.01" type="number">
 											</div>
@@ -135,31 +138,57 @@
 								<div class="col-lg-2 my-auto">
 									<div class="form-group">
 										<input class="form-control btn btn-primary" onclick="copydata()" type="button" value="Copy →"/>
+										<small class="form-text text-muted">Press the copy button to do
+											a quick comparison.</small>
 									</div>
 								</div>
 								<fieldset class="col-lg" id="ap">
 									<legend>Annual Pass Trip</legend>
+									<small class="form-text text-muted">Use this side to compare against
+									a trip without annual passes, or to see where the break even point
+									is with an annual pass</small>
 									<div class="form-row">
-										<div class="form-group col-md-8">
-											<label for="ap_num">Annual Passes</label> <input class="form-control" id="ap_num" min="1" type="number">
+										<div class="form-group col-md-6">
+											<label for="ap_num" data-toggle="tooltip" title="Pro Tip: You only need one to get the benifits.">Annual Passes</label> <input class="form-control" id="ap_num" min="1" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="ap_upgrade">Platinum Pass +?</label> <select class="form-control" id="ap_upgrade">
+											<label for="ap_upgrade" data-toggle="tooltip" title="Some passes require being a Florida Resident or a DVC member.">Pass Type</label> <select class="form-control" id="ap_upgrade">
 												<option value="0">
-													No
+													Platinum Plus
 												</option>
 												<option value="1">
-													Yes
+													Platinum
+												</option>
+												<option value="2">
+													Platinum Plus (FL/DVC)
+												</option>
+												<option value="3">
+													Platinum (FL/DVC)
+												</option>
+												<option value="4">
+													Gold (FL/DVC)
+												</option>
+												<option value="5">
+													Silver (FL/DVC)
+												</option>
+												<option value="6">
+													Theme Park Select (FL/DVC)
+												</option>
+												<option value="7">
+													Weekday Select (FL/DVC)
+												</option>
+												<option value="8">
+													Epcot After 4 (FL/DVC)
 												</option>
 											</select>
 										</div>
 									</div>
 									<div class="form-row">
-										<div class="form-group col-md-8">
+										<div class="form-group col-md-6">
 											<label for="ap_reg_num">Regular Tickets</label> <input class="form-control" id="ap_reg_num" min="0" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="ap_reg_upgrade">Park Hopper?</label> <select class="form-control" id="ap_reg_upgrade">
+											<label for="ap_reg_upgrade" data-toggle="tooltip" title="A great value subsitution instead of another annual pass.">Park Hopper?</label> <select class="form-control" id="ap_reg_upgrade">
 												<option value="0">
 													No
 												</option>
@@ -171,10 +200,10 @@
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="ap_days">Days/Year</label> <input class="form-control" id="ap_days" min="0" type="number">
+											<label for="ap_days">Park Days per Year</label> <input class="form-control" id="ap_days" min="0" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="ap_food">Food/Person/Day</label>
+											<label for="ap_food">Food per Person per Day</label>
 											<div class="input-group">
 												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="ap_food" min="0" step="0.01" type="number">
 											</div>
@@ -182,10 +211,10 @@
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="ap_trips">Trips/Year</label> <input class="form-control" id="ap_trips" min="0" type="number">
+											<label for="ap_trips">Trips per Year</label> <input class="form-control" id="ap_trips" min="0" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="ap_nights">Nights/Year</label> <input class="form-control" id="ap_nights" min="0" type="number">
+											<label for="ap_nights">Nights per Year</label> <input class="form-control" id="ap_nights" min="0" type="number">
 										</div>
 									</div>
 									<div class="form-row">
@@ -193,12 +222,12 @@
 											<label for="ap_rooms">Rooms</label> <input class="form-control" id="ap_rooms" min="0" type="number">
 										</div>
 										<div class="form-group col">
-											<label for="ap_rooms_people">People/Room</label> <input class="form-control" id="ap_rooms_people" min="1" type="number" disabled>
+											<label for="ap_rooms_people">People per Room</label> <input class="form-control" id="ap_rooms_people" min="1" type="number" disabled>
 										</div>
 									</div>
 									<div class="form-row">
 										<div class="form-group col-md-6">
-											<label for="ap_merch">Merchandise/Year</label>
+											<label for="ap_merch">Merchandise per Year</label>
 											<div class="input-group">
 												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="ap_merch" min="0" step="0.01" type="number">
 											</div>
@@ -222,7 +251,7 @@
 								<fieldset class="col-lg-4" id="optional">
 									<legend>Optional Inputs</legend>
 									<div class="form-group">
-										<label for="custom_hotel">Custom Hotel Price/Night</label>
+										<label for="custom_hotel" data-toggle="tooltip" title="If you find a particular rate for a Disney hotel, or another accomation, here is where to put that.">Custom Hotel Price/Night</label>
 										<div class="input-group">
 											<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="custom_hotel" min="0" step="0.01" type="number">
 										</div>
@@ -277,7 +306,7 @@
 					find (base room accommodations during value times). This is because
 					the more expensive the trip, the more worthwhile an AP becomes. Thus,
 					if it is worthwhile under these conditions, it will be worthwhile regardless
-					of when you go.Feel free to check the prices in the constants tab.
+					of when you go. Feel free to check the prices in the constants tab.
 					If you know of a lower price for any of the items listed or have
 					suggestions to improve the calculator, please
 					<a href="https://github.com/pacollins/wdwapcalc/issues/new">let me know</a>

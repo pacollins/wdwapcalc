@@ -23,6 +23,11 @@ $( document )
 			} );
 	} );
 
+// Tooptips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
 // Show License Modal
 // Source: Bootstrapa
 $( '#license' )
@@ -33,8 +38,16 @@ $( '#license' )
 
 // Main JS for Calculator and DataTables
 // Constants
-var pp = 952.11,
-	ppp = 1058.61,
+var tax = 1.065,
+	ppp = 994*tax,
+	pp = 894*tax,
+	pppfl = 849*tax,
+	ppfl = 749*tax,
+	gp = 609*tax,
+	sp = 479*tax,
+	tpsp = 439*tax,
+	wsp = 319*tax,
+	eafp = 289*tax,
 	ticket = 44.80,
 	hopper = 7.47,
 	photopass = 169,
@@ -90,8 +103,15 @@ var pp = 952.11,
 
 	// Constants Array for Table
 	constants = [
-		[ "Platinum Pass +", "$" + (ppp).toFixed(2) ],
+		[ "Platinum Pass Plus", "$" + (ppp).toFixed(2) ],
 		[ "Plainum Pass", "$" + (pp).toFixed(2) ],
+		[ "Platinum Pass Plus (FL/DVC)", "$" + (pppfl).toFixed(2) ],
+		[ "Plainum Pass (FL/DVC)", "$" + (ppfl).toFixed(2) ],
+		[ "Gold Pass (FL/DVC)", "$" + (gp).toFixed(2) ],
+		[ "Silver Pass (FL/DVC)", "$" + (sp).toFixed(2) ],
+		[ "Theme Park Select Pass (FL/DVC)", "$" + (tpsp).toFixed(2) ],
+		[ "Weekday Select Pass (FL/DVC)", "$" + (wsp).toFixed(2) ],
+		[ "EPCOT After 4 Pass (FL/DVC)", "$" + (eafp).toFixed(2) ],
 		[ "Ticket/Day", "$" + (ticket).toFixed(2) ],
 		[ "Hopper/Day", "$" + (hopper).toFixed(2) ],
 		[ "Photopass", "$" + (photopass).toFixed(2) ],
@@ -113,7 +133,6 @@ var pp = 952.11,
 		[ "BoardWalk Inn (DVC)", "$" + (bwdvchotel).toFixed(2) ],
 		[ "Grand Floridian (DVC)", "$" + (gfdvchotel).toFixed(2) ],
 		[ "Old Key West (DVC)", "$" + (okwdvchotel).toFixed(2) ],
-		[ "Grand Floridian", "$" + (gfhotel).toFixed(2) ],
 		[ "Polynesian Village (DVC)", "$" + (pvdvchotel).toFixed(2) ],
 		[ "Riviera (DVC)", "$" + (rdvchotel).toFixed(2) ],
 		[ "Saratoga Springs (DVC)", "$" + (ssdvchotel).toFixed(2) ],
@@ -252,10 +271,26 @@ calculate = function() {
 	} else {
 		regUpgrade = 0;
 	}
-	if ( apUpgrade > 0 ) {
+	if ( apUpgrade === 0 ) {
 		apUpgrade = ppp;
-	} else {
+	} else if ( apUpgrade === 1 ) {
 		apUpgrade = pp;
+	} else if ( apUpgrade === 2 ) {
+		apUpgrade = pppfl;
+	} else if ( apUpgrade === 3 ) {
+		apUpgrade = ppfl;
+	} else if ( apUpgrade === 4 ) {
+		apUpgrade = gp;
+	} else if ( apUpgrade === 5 ) {
+		apUpgrade = sp;
+	} else if ( apUpgrade === 6 ) {
+		apUpgrade = tpsp;
+	} else if ( apUpgrade === 7 ) {
+		apUpgrade = wsp;
+	} else if ( apUpgrade === 8 ) {
+		apUpgrade = eafp;
+	} else {
+		apUpgrade =pp;
 	}
 	if ( apRegUpgrade > 0 ) {
 		apRegUpgrade = hopper;
@@ -278,7 +313,6 @@ calculate = function() {
 	  [ "BoardWalk Inn (DVC)", bwdvchotel, 0],
 	  [ "Grand Floridian (DVC)", gfdvchotel, 0],
 	  [ "Old Key West (DVC)", okwdvchotel, 0],
-	  [ "Grand Floridian", gfhotel, 0],
 	  [ "Polynesian Village (DVC)", pvdvchotel, 0],
 	  [ "Riviera (DVC)", rdvchotel, 0],
 	  [ "Saratoga Springs (DVC)", ssdvchotel, 0],
@@ -305,9 +339,6 @@ calculate = function() {
 	  [ "Custom", customhotel, 0]
 	];
 
-	var results = [];
-  var resortapmargin, resortap, resorttyp;
-
 	// Base Calculations
 	var apmargin = (apNum * apDays * hopper) + ( photopass * apTrips ) +
 								( apFood * apFoodDiscount * ( apNum + apRegNum ) * apDays * ( 1 - apTip ) ) +
@@ -319,6 +350,11 @@ calculate = function() {
 		typ = ( photopass * regTrips ) + ( regNum * ( ticket + regUpgrade ) * regDays ) +
 				( regFood * ( 1 - regFoodDiscount ) * regNum * regDays * ( 1 + regTip ) ) +
 				( regMerch * ( 1 - regMerchDiscount ) );
+
+	var results = [
+		["Excluding Hotel", (apmargin).toFixed(2), (ap).toFixed(2), (typ-ap).toFixed(2), (typ).toFixed(2)]
+	];
+  var resortapmargin, resortap, resorttyp;
 
 	// Invidiual Calculations
 	$.each(resorts, function (i) {
@@ -345,10 +381,10 @@ calculate = function() {
 			data: results,
 			columns: [
 				{ title: "Hotel" },
-				{ title: "AP Loss/Gain", className: "compare" },
-				{ title: "AP Cost/Year" },
-				{ title: "AP vs Typical Cost", className: "compare" },
-				{ title: "Typical Cost/Year" }
+				{ title: "AP Loss(-)/Savings(+)", className: "compare" },
+				{ title: "AP Cost per Year" },
+				{ title: "Regular - AP Cost", className: "compare" },
+				{ title: "Regular Cost per Year" }
         ],
 			processing: true,
 			stateSave: true,
