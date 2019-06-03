@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>WDW AP Calculator</title>
+	<meta name="author" content="Patrick A Collins">
+	<meta name="description" content="A calculator to determine the value of purchasing an Annual Pass at Walt Disney World in Orlando, Florida.">
+	<meta name="keywords" content="walt, disney, world, annual, pass, calculator, value">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta property="og:title" content="Walt Disney World Annual Pass Calculator">
+	<meta property="og:url" content="https://pacollins.github.io/wdwapcalc">
+	<meta property="og:description" content="A calculator to determine the value of purchasing an Annual Pass at Walt Disney World in Orlando, Florida.">
+	<meta property="og:image" content="https://pacollins.github.io/wdwapcalc/Passholder.jpg">
+	<link rel="stylesheet" href="https://cdn.datatables.net/v/bs4-4.0.0-beta/dt-1.10.16/b-1.4.2/fc-3.2.3/fh-3.1.3/r-2.2.0/sc-1.4.3/datatables.min.css" />
+	<link rel="stylesheet" href="style.css"/>
+	<link rel="author" href="https://www.pacollins.com/about/" />
+	<link rel="license" href="https://github.com/pacollins/wdwapcalc/blob/master/LICENSE" />
+	<!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<div class="jumbotron text-center vertical-center">
+		<h1 class="display-4">WDW Annual Pass Calculator</h1>
+		<p class="lead">by Patrick A Collins</p>
+		<hr class="my-4">
+		<img alt="Annual Passholder Card" class="rounded" src="Passholder.jpg" width="300">
+		<hr class="my-4">
+		<p>A calculator to determine the value of purchasing an Annual Pass at Walt Disney World in Orlando, Florida.</p>
+		<p>Created for <a href="http://www.reddit.com/r/WaltDisneyWorld"><i class="fab fa-reddit-alien"></i> r/WaltDisneyWorld</a></p><br>
+		<a href="#content" id="tocontent"><i aria-hidden="true" class="fas fa-angle-double-down fa-3x .text-white bump"></i></a>
+	</div>
+	<div class="container-fluid" id="content">
+		<div class="card">
+			<div class="card-header">
+				<ul class="nav nav-tabs card-header-tabs" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link active" data-toggle="tab" href="#calculator" role="tab">Calculator</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" data-toggle="tab" href="#constants" role="tab">Constants</a>
+					</li>
+				</ul>
+			</div>
+			<div class="card-block">
+				<div class="tab-content">
+					<div class="tab-pane active" id="calculator" role="tabpanel">
+						<form class="form">
+							<div class="card-body row">
+								<fieldset class="col-lg" id="reg">
+									<legend>Regular Ticket Trip</legend>
+									<small class="form-text text-muted">Use this side of the form
+										if you are looking to compare what you might typically do with
+										what you could do with an Annual Pass.</small>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="reg_visa" data-toggle="tooltip" title="Disney provides food and merchandise discounts when using this card.">Disney VISA?</label> <select class="form-control" id="reg_visa">
+												<option value="0">
+													No
+												</option>
+												<option value="1">
+													Yes
+												</option>
+											</select>
+										</div>
+										<div class="form-group col">
+											<label for="reg_photopass">PhotoPass?</label> <select class="form-control" id="reg_photopass">
+												<option value="0">
+													No
+												</option>
+												<option value="1">
+													Yes
+												</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="reg_num">Tickets</label> <input class="form-control" id="reg_num" min="1" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="reg_upgrade">Park Hopper?</label> <select class="form-control" id="reg_upgrade">
+												<option value="0">
+													No
+												</option>
+												<option value="1">
+													Yes
+												</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="reg_days">Park Days per Year</label> <input class="form-control" id="reg_days" min="0" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="reg_food">Food per Person per Day</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="reg_food" min="0" step="0.01" type="number">
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="reg_trips" data-toggle="tooltip" title="Each trip would require a new PhotoPass.">Trips per Year</label> <input class="form-control" id="reg_trips" min="0" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="reg_nights">Nights per Year</label> <input class="form-control" id="reg_nights" min="0" type="number">
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="reg_rooms">Rooms</label> <input class="form-control" id="reg_rooms" min="0" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="reg_rooms_people">People per Room</label> <input class="form-control" id="reg_rooms_people" min="1" type="number" disabled>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="reg_merch">Merchandise per Year</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="reg_merch" min="0" step="0.01" type="number">
+											</div>
+										</div>
+										<div class="form-group col">
+											<label for="reg_wonderland">Tables In Wonderland?</label> <select class="form-control" id="reg_wonderland" disabled>
+												<option value="0">
+													No
+												</option>
+												<option value="1">
+													Yes
+												</option>
+											</select>
+										</div>
+									</div>
+								</fieldset>
+								<div class="col-lg-2 my-auto">
+									<div class="form-group">
+										<input class="form-control btn btn-primary" onclick="copydata()" type="button" value="Copy →"/>
+										<small class="form-text text-muted">Press the copy button to do
+											a quick comparison.</small>
+									</div>
+								</div>
+								<fieldset class="col-lg" id="ap">
+									<legend>Annual Pass Trip</legend>
+									<small class="form-text text-muted">Use this side to compare against
+									a trip without annual passes, or to see where the break even point
+									is with an annual pass</small>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="ap_num" data-toggle="tooltip" title="Pro Tip: You only need one to get the benifits.">Annual Passes</label> <input class="form-control" id="ap_num" min="1" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="ap_upgrade" data-toggle="tooltip" title="Some passes require being a Florida Resident or a DVC member.">Pass Type</label> <select class="form-control" id="ap_upgrade">
+												<option value="0">
+													Platinum Plus
+												</option>
+												<option value="1">
+													Platinum
+												</option>
+												<option value="2">
+													Platinum Plus (FL/DVC)
+												</option>
+												<option value="3">
+													Platinum (FL/DVC)
+												</option>
+												<option value="4">
+													Gold (FL/DVC)
+												</option>
+												<option value="5">
+													Silver (FL/DVC)
+												</option>
+												<option value="6">
+													Theme Park Select (FL/DVC)
+												</option>
+												<option value="7">
+													Weekday Select (FL/DVC)
+												</option>
+												<option value="8">
+													Epcot After 4 (FL/DVC)
+												</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="ap_reg_num">Regular Tickets</label> <input class="form-control" id="ap_reg_num" min="0" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="ap_reg_upgrade" data-toggle="tooltip" title="A great value subsitution instead of another annual pass.">Park Hopper?</label> <select class="form-control" id="ap_reg_upgrade">
+												<option value="0">
+													No
+												</option>
+												<option value="1">
+													Yes
+												</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="ap_days">Park Days per Year</label> <input class="form-control" id="ap_days" min="0" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="ap_food">Food per Person per Day</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="ap_food" min="0" step="0.01" type="number">
+											</div>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="ap_trips">Trips per Year</label> <input class="form-control" id="ap_trips" min="0" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="ap_nights">Nights per Year</label> <input class="form-control" id="ap_nights" min="0" type="number">
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="ap_rooms">Rooms</label> <input class="form-control" id="ap_rooms" min="0" type="number">
+										</div>
+										<div class="form-group col">
+											<label for="ap_rooms_people">People per Room</label> <input class="form-control" id="ap_rooms_people" min="1" type="number" disabled>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="ap_merch">Merchandise per Year</label>
+											<div class="input-group">
+												<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="ap_merch" min="0" step="0.01" type="number">
+											</div>
+										</div>
+										<div class="form-group col">
+											<label for="ap_wonderland">Tables In Wonderland?</label> <select class="form-control" id="ap_wonderland" disabled>
+												<option value="0">
+													No
+												</option>
+												<option value="1">
+													Yes
+												</option>
+											</select>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+							<div class="card-body row">
+								<div class="col-lg-4">
+								</div>
+								<fieldset class="col-lg-4" id="optional">
+									<legend>Optional Inputs</legend>
+									<div class="form-group">
+										<label for="custom_hotel" data-toggle="tooltip" title="If you find a particular rate for a Disney hotel, or another accomation, here is where to put that.">Custom Hotel Price/Night</label>
+										<div class="input-group">
+											<span class="input-group-addon"><i aria-hidden="true" class="fas fa-dollar-sign"></i></span> <input aria-label="Amount" class="form-control" id="custom_hotel" min="0" step="0.01" type="number">
+										</div>
+									</div>
+								</fieldset>
+								<div class="col-lg-4">
+								</div>
+							</div>
+						</form>
+						<div class="card-body row">
+							<div class="col-md">
+							</div>
+							<div class="col-md-3">
+								<div class="form-group">
+									<input class="form-control btn btn-primary" onclick="calculate()" type="submit" value="Calculate">
+								</div>
+							</div>
+							<div class="col-md">
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane" id="constants" role="tabpanel">
+						<div class="card-body row">
+							<div class="col-sm-2">
+							</div>
+							<div align="center" class="col-sm">
+								<h4>Item Constants</h4>
+								<table class="table display" id="chartconstants"></table>
+							</div>
+							<div align="center" class="col-sm">
+								<h4>Room Constants</h4>
+								<table class="table display" id="charthotels"></table>
+							</div>
+							<div class="col-sm-2">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr class="my-4">
+	<div class="container-fluid">
+		<div class="card">
+			<table class="table display" id="chart"></table>
+			<div class="card-footer text-center">
+				<h4>Methodology</h4>
+				<p>Hotel prices based on the cheapest advertised rack rates for 2019
+					(Source: <a href="https://www.mousesavers.com/2018-disney-world-room-rates-season-dates/">MouseSavers</a>).
+					DVC Rentals are based on the lowest average price at $17/point.</p>
+				<p>All prices used within the calculator are the cheapest that I could
+					find (base room accommodations during value times). This is because
+					the more expensive the trip, the more worthwhile an AP becomes. Thus,
+					if it is worthwhile under these conditions, it will be worthwhile regardless
+					of when you go. Feel free to check the prices in the constants tab.
+					If you know of a lower price for any of the items listed or have
+					suggestions to improve the calculator, please
+					<a href="https://github.com/pacollins/wdwapcalc/issues/new">let me know</a>
+					and I'll adjust it.</p>
+				<p>Remember, you don't have to get everyone an Annual Pass to get the
+					savings an Annual Pass gets you.</p>
+			</div>
+		</div>
+	</div>
+	<footer class="text-center card-body">
+		<p>
+			Copyright &copy; 2017<script>new Date().getFullYear()>2017&&document.write("-"+new Date().getFullYear());</script> Patrick A Collins.
+			<br>
+			<button class="btn btn-primary" data-target="#license" data-toggle="modal" type="button"><i aria-hidden="true" class="fas fa-gavel"></i> MIT License</button>
+		</p>
+		<div aria-hidden="true" aria-labelledby="license" class="modal fade" id="license" role="dialog" tabindex="-1">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="licenselabel">MIT License</h4>
+						<button aria-label="Close" class="close" data-dismiss="modal" type="button"><i class="fas fa-times"></i></button>
+					</div>
+					<div class="modal-body small">
+						<p>Copyright &copy; 2017<script>new Date().getFullYear()>2017&&document.write("-"+new Date().getFullYear());</script> Patrick A Collins.</p>
+						<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+						<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+						<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script src="https://cdn.datatables.net/v/bs4-4.0.0-beta/dt-1.10.16/b-1.4.2/fc-3.2.3/fh-3.1.3/r-2.2.0/sc-1.4.3/datatables.min.js"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>

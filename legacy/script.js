@@ -1,15 +1,42 @@
-$(document).ready(function(){
+// Smooth Scroll To Content
+// Source: https://css-tricks.com/snippets/jquery/smooth-scrolling/
+$( document )
+	.ready( function() {
+		// Add smooth scrolling to all links
+		$( "#tocontent" )
+			.on( 'click', function( event ) {
+				// Make sure this.hash has a value before overriding default behavior
+				if ( this.hash !== "" ) {
+					// Prevent default anchor click behavior
+					event.preventDefault();
+					// Store hash
+					var hash = this.hash;
+					// Using jQuery's animate() method to add smooth page scroll
+					// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+					$( 'html, body' )
+						.animate( {
+							scrollTop: $( hash )
+								.offset()
+								.top
+						}, 800 );
+				} // End if
+			} );
+	} );
 
-if($("#container").size()>0){
-				if (document.createStyleSheet){
-						document.createStyleSheet('style.css');
-				}
-				else {
-						$("head").append($("<link rel='stylesheet' href='style.css' type='text/css' media='screen' />"));
-				}
-		}
-});
+// Tooptips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
+// Show License Modal
+// Source: Bootstrapa
+$( '#license' )
+	.on( 'shown.bs.modal', function() {
+		$( '#license' )
+			.trigger( 'focus' );
+	} );
+
+// Main JS for Calculator and DataTables
 // Constants
 var tax = 1.065,
 	ppp = 994*tax,
@@ -150,7 +177,7 @@ $( '#charthotels' )
 		data: hotels,
 		columns: [
 			{ title: "Hotel" },
-			{ title: "Cost/Night" }
+			{ title: "Cost per Night" }
         ],
 		paging: false,
 		info: false,
@@ -374,11 +401,15 @@ calculate = function() {
 
 		for (var i=0, len=cells.length; i<len; i++){
 		  if (Number(cells[i].innerHTML) > 0 && cells[i].classList.contains('compare')){
-		      cells[i].className = 'uk-text-success';
+		      cells[i].className = 'text-success';
 		  }
 		  else if (Number(cells[i].innerHTML) < 0 && cells[i].classList.contains('compare')){
-		      cells[i].className = 'uk-text-danger';
+		      cells[i].className = 'text-danger';
 		  }
 		}
 		$('#chart td:not(:first-child)').prepend('$');
+		$("#chart").find("thead tr th:nth-child(2)").attr("uk-tooltip", "This column shows how much money you are losing (-) or saving (+) with your current Annual Pass settings.");
+		$("#chart").find("thead tr th:nth-child(3)").attr("uk-tooltip", "This column shows the total cost of your current Annual Pass settings.");
+		$("#chart").find("thead tr th:nth-child(4)").attr("uk-tooltip", "This column shows the difference between your Regular Ticket cost and your Annual Ticket cost.");
+		$("#chart").find("thead tr th:nth-child(5)").attr("uk-tooltip", "This column shows the total cost of your current Regular Ticket settings.");
 };
