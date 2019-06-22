@@ -38,3 +38,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before,
 table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 	transform: rotate(90deg);
 }
+
+.uk-slideshow-items {
+	min-height: 100vh !important;
+}

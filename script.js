@@ -51,26 +51,26 @@ var tax = 1.065,
 	ssdvchotel = 11*point,
 	wldvchotel = 15*point,
 	// Deluxe Hotels
-	aklhotel = 389,
-	bchotel = 456,
-	bwhotel = 498,
-	conhotel = 465,
-	gfhotel = 664,
-	pvhotel = 552,
-	wlhotel = 378,
-	ychotel = 456,
+	aklhotel = 417,
+	bchotel = 487,
+	bwhotel = 533,
+	conhotel = 498,
+	gfhotel = 710,
+	pvhotel = 593,
+	wlhotel = 406,
+	ychotel = 487,
 	// Moderate Hotels
-	cbhotel = 194,
-	cshotel = 208,
-	pohotel = 232,
+	cbhotel = 230,
+	cshotel = 223,
+	pohotel = 246,
 	// Value Hotels
 	amohotel = 112,
 	amuhotel = 112,
 	asphotel = 112,
-	aoahotel = 153,
+	aoahotel = 180,
 	aoashotel = 366,
-	pchotel = 130,
-	fwhotel = 377,
+	pchotel = 154,
+	fwhotel = 400,
 	// Off-Site or Custom Price
 	offhotel = 100,
 
@@ -364,7 +364,8 @@ calculate = function() {
 			paging: false,
 			info: false,
 			searching: false,
-			responsive: true
+			responsive: true,
+			fixedHeader: true
 		} );
 
 		$('th').addClass('table-toggle btn-outline-dark');
